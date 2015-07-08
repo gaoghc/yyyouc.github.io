@@ -85,8 +85,8 @@
       
         <h2 id="Introduction">Introduction</h2><p>When it comes to classification methods, there are two categories. The first category is to construct a <code>discriminant function</code> for each class, and then classify each sample to the class with the largest value for its discriminant function, such as logistic regression method. The second method is to construct a <code>separating hyperplane</code>, such as perceptron method and SVM.</p>
 <h2 id="Objective_function">Objective function</h2><p>SVM is to find an optimal separating hyperplane among different classes such that the <code>margin</code> is maximized, where margin is the smallest distance between the separating plane and any of the samples. </p>
-<p>The objective function is as follows,<br>$$\max_{w,b} margin(w, b) \\<br>s.t. y_n(w^Tx_n+b)&gt;0$$<br>where $margin(w,b)=min_{n=1,2,..,N}distance(x_n,w,b)$, and $distance(x_n, w, b)=\frac{|w^Tx_n+b|}{||w||}=\frac{y_n(w^Tx_n+b)}{||w||}$. The constraint means that we are only interested in the hyperplane for which all samples are correctly classified.</p>
-<p>Due to the linearity of the hyperplane, there exists many representations for the same hyperplane, for example, $(kw)^Tx+kb=0$. To avoid such cases, we scale $w$ and $b$ such that $min_{n=1,2,..,N} y_n(w^Tx_n+b)=1$. Thus, $margin(w,b)=\frac{1}{||w||}$. Thus, the objective function is as follows.<br>$$ \max_{w,b}\frac{1}{||w||} \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$<br>It is equivalent to the following:<br>$$ \min_{w,b}\frac{1}{2}w^Tw \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$</p>
+<p>The objective function is as follows,<br>$$\max_{w,b} margin(w, b) \\<br>s.t. y_n(w^Tx_n+b)&gt;0$$<br>where $margin(w,b)=\min_{n=1,2,..,N}distance(x_n,w,b)$, and $distance(x_n, w, b)=\frac{|w^Tx_n+b|}{||w||}=\frac{y_n(w^Tx_n+b)}{||w||}$. The constraint means that we are only interested in the hyperplane for which all samples are correctly classified.</p>
+<p>Due to the linearity of the hyperplane, there exists many representations for the same hyperplane, for example, $(kw)^Tx+kb=0$. To avoid such cases, we scale $w$ and $b$ such that $\min_{n=1,2,..,N} y_n(w^Tx_n+b)=1$. Thus, $margin(w,b)=\frac{1}{||w||}$. Thus, the objective function is as follows.<br>$$ \max_{w,b}\frac{1}{||w||} \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$<br>It is equivalent to the following:<br>$$ \min_{w,b}\frac{1}{2}w^Tw \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$</p>
 <h2 id="Optimization_algorithm">Optimization algorithm</h2><p>There are two methods to solve this objective function. The first method is to solve the primal problem directly. The second method is to solve the dual problem.</p>
 <ol>
 <li><p>Primal method<br>This problem is a quadratic programming (QP) problem. It can be solved directly by many optimization tools. The general form of the QP problem is as follows.<br>$$min_{u} \frac{1}{2}u^TQu+p^Tu \\<br>s.t.a_i^Tu\geq c_i , i=1,…,m<br>$$<br>The objective function of SVM can be represented as such form, where $u=\left[<br>\begin{array}{c}<br> b\\ w<br>\end{array}<br>\right] $, $Q=\left[<br>\begin{array}{cc}<br> 0 &amp; 0_d^T \\<br> 0_d &amp; I_d<br>\end{array}<br>\right] $, $p=0_{d+1}$, $a_i^T=y_i[1,  x_i^T]$,$c_i=1$</p>
@@ -98,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibub81zz0000lsfffowhr1y0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibub9ps8000088ffoqxnrx27" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibub820f0003lsffwfjcliv8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibub9ptb000388fffx9kojes" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
