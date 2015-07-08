@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | YYYOUC</title>
+  <title>YYYOUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="Support Vector MachineIntroductionWhen it comes to classification methods, there are two categories. The first category is to construct a discriminant function for each class, and then classify each s">
+<meta property="og:type" content="article">
 <meta property="og:title" content="YYYOUC">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/07/07/Support Vector Machine/index.html">
 <meta property="og:site_name" content="YYYOUC">
-<meta property="og:description">
+<meta property="og:description" content="Support Vector MachineIntroductionWhen it comes to classification methods, there are two categories. The first category is to construct a discriminant function for each class, and then classify each s">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YYYOUC">
-<meta name="twitter:description">
+<meta name="twitter:description" content="Support Vector MachineIntroductionWhen it comes to classification methods, there are two categories. The first category is to construct a discriminant function for each class, and then classify each s">
   
     <link rel="alternative" href="/atom.xml" title="YYYOUC" type="application/atom+xml">
   
@@ -59,90 +59,62 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/07/SVM/" class="archive-article-date">
-  <time datetime="2015-07-08T04:09:39.000Z" itemprop="datePublished">Jul 7</time>
+        <section id="main"><article id="post-Support Vector Machine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/07/Support Vector Machine/" class="article-date">
+  <time datetime="2015-07-08T04:06:01.154Z" itemprop="datePublished">2015-07-07</time>
 </a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/07/SVM/">SVM</a>
-    </h1>
-  
+        <h1 id="Support_Vector_Machine">Support Vector Machine</h1><h2 id="Introduction">Introduction</h2><p>When it comes to classification methods, there are two categories. The first category is to construct a <code>discriminant function</code> for each class, and then classify each sample to the class with the largest value for its discriminant function, such as logistic regression method. The second method is to construct a <code>separating hyperplane</code>, such as perceptron method and SVM.</p>
+<h2 id="Objective_function">Objective function</h2><p>SVM is to find an optimal separating hyperplane among different classes such that the <code>margin</code> is maximized, where margin is the smallest distance between the separating plane and any of the samples. </p>
+<p>The objective function is as follows,<br>$$max<em>{w,b} margin(w, b) \<br>s.t. y_n(w^Tx_n+b)&gt;0 $$<br>where $margin(w,b)=min</em>{n=1,2,..,N} distance(x_n,w,b)$, and $distance(x_n, w, b)=\frac{|w^Tx_n+b|}{||w||}=\frac{y_n(w^Tx_n+b)}{||w||}$. The constraint means that we are only interested in the hyperplane for which all samples are correctly classified.</p>
+<p>Due to the linearity of the hyperplane, there exists many representations for the same hyperplane, for example, $(kw)^Tx+kb=0$. To avoid such cases, we scale $w$ and $b$ such that $min<em>{n=1,2,..,N} y_n(w^Tx_n+b)=1$. Thus, $margin(w,b)=\frac{1}{||w||}$. Thus, the objective function is as follows.<br>$$ max</em>{w,b}\frac{1}{||w||} \<br>s.t. y<em>n(w^Tx_n+b)\geq1 $$<br>It is equivalent to the following:<br>$$ max</em>{w,b}\frac{1}{2}w^Tw \<br>s.t. y_n(w^Tx_n+b)\geq1 $$</p>
+<h2 id="Optimization_algorithm">Optimization algorithm</h2><p>There are two methods to solve this objective function. The first method is to solve the primal problem directly. The second method is to solve the dual problem.</p>
+<ol>
+<li><p>Primal method</p>
+</li>
+<li><p>Dual method</p>
+</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/07/07/Support Vector Machine/" class="archive-article-date">
-  <time datetime="2015-07-08T04:06:01.154Z" itemprop="datePublished">Jul 7</time>
-</a>
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/05/17/hello-world/" class="archive-article-date">
-  <time datetime="2015-05-18T01:29:05.546Z" itemprop="datePublished">May 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibu90uku0006gsffno2ktww5" class="article-share-link">Share</a>
       
+      
+    </footer>
+  </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/17/hello-world/">Hello World</a>
-    </h1>
+    
+<nav id="article-nav">
   
+    <a href="/2015/07/07/SVM/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SVM
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/05/17/Test/" class="archive-article-date">
-  <time datetime="2015-05-18T01:23:09.000Z" itemprop="datePublished">May 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/17/Test/">Test</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
         
           <aside id="sidebar">
