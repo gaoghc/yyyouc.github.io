@@ -89,7 +89,7 @@
 <p>Due to the linearity of the hyperplane, there exists many representations for the same hyperplane, for example, $(kw)^Tx+kb=0$. To avoid such cases, we scale $w$ and $b$ such that $min_{n=1,2,..,N} y_n(w^Tx_n+b)=1$. Thus, $margin(w,b)=\frac{1}{||w||}$. Thus, the objective function is as follows.<br>$$ \max_{w,b}\frac{1}{||w||} \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$<br>It is equivalent to the following:<br>$$ \min_{w,b}\frac{1}{2}w^Tw \\<br>s.t. y_n(w^Tx_n+b)\geq1 $$</p>
 <h2 id="Optimization_algorithm">Optimization algorithm</h2><p>There are two methods to solve this objective function. The first method is to solve the primal problem directly. The second method is to solve the dual problem.</p>
 <ol>
-<li><p>Primal method<br>This problem is a quadratic programming (QP) problem. It can be solved directly by many optimization tools. The general form of the QP problem is as follows.<br>$$min_{u} \frac{1}{2}u^TQu+p^Tu \\<br>s.t.a_i^Tu\geq c_i , i=1,…,m<br>$$<br>The objective function of SVM can be represented as such form, where $u=\left[<br>\begin{array}{c}<br> b\\ w<br>\end{array}<br>\right] $, $Q=\left[<br>\begin{array}{cc}<br> 0 &amp; 0<em>d^T \\<br> 0_d &amp; I_d<br>\end{array}<br>\right] $, $p=0\</em>{d+1}$, $a_i^T=y_i[1,  x_i^T]$,$c_i=1$</p>
+<li><p>Primal method<br>This problem is a quadratic programming (QP) problem. It can be solved directly by many optimization tools. The general form of the QP problem is as follows.<br>$$min_{u} \frac{1}{2}u^TQu+p^Tu \\<br>s.t.a_i^Tu\geq c_i , i=1,…,m<br>$$<br>The objective function of SVM can be represented as such form, where $u=\left[<br>\begin{array}{c}<br> b\\ w<br>\end{array}<br>\right] $, $Q=\left[<br>\begin{array}{cc}<br> 0 &amp; 0_d^T \\<br> 0_d &amp; I_d<br>\end{array}<br>\right] $, $p=0_{d+1}$, $a_i^T=y_i[1,  x_i^T]$,$c_i=1$</p>
 </li>
 <li><p>Dual method</p>
 </li>
@@ -98,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibub73n70000r0ffn5s8yf23" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibub81zz0000lsfffowhr1y0" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibub73oi0003r0ffk89ufefa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibub820f0003lsffwfjcliv8" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
