@@ -89,14 +89,15 @@
 <ol>
 <li><p>Primal method<br>This problem is a quadratic programming (QP) problem. It can be solved directly by many optimization tools. The general form of the QP problem is as follows.<br>$$min_{u} \frac{1}{2}u^TQu+p^Tu \\<br>s.t.a_i^Tu\geq c_i , i=1,…,m<br>$$<br>The objective function of SVM can be represented as such form, where $u=\left[<br>\begin{array}{c}<br> b\\ w<br>\end{array}<br>\right] $, $Q=\left[<br>\begin{array}{cc}<br> 0 &amp; 0_d^T \\<br> 0_d &amp; I_d<br>\end{array}<br>\right] $, $p=0_{d+1}$, $a_i^T=y_i[1,  x_i^T]$,$c_i=1$</p>
 </li>
-<li><p>Dual method</p>
+<li><p>Dual method<br>At first, we will talk about some basic knowledge about the dual problem. </p>
 </li>
 </ol>
+<p>We consider a standard optimization problem:<br>$$<br>\min f<em>0(x)  \<br>s.t. f_i(x) \leq 0, i=1,…,m \<br>h_i(x) = 0, i=1,…,p<br>$$<br>This is a constrained optimization problem. Ususally it is more difficult to solve than the unconstrained optimization problem. Can we transform it to an unconstrained one? Of course, we define a Lagrangian function as follows:<br>$$L(x,\lambda, v)=f_0(x)+\sum</em>{i=1}^m\lambda<em>if_i(x)+\sum</em>{i=1}^pv<em>ih_i(x)$$<br>where $\lambda_i$ and $v_i$ is the Lagrangian multiplier. Note that we put the constraint into the objective function so that it becomes an uncontrained problem. However, are they equivalent?<br>Consider the following function:<br>\begin{equation}<br>\theta_p(x)=\max</em>{\lambda<em>i,v_i: \lambda_i\geq 0} L(x, \lambda, v)<br>\end{equation}<br>If some constraint are violated, such as $f_i(x)&gt;0$ or $h_i(x)\neq0$, we can adjust $\lambda_i$ and $v_i$ such that $\theta_p(x)$ approaches to infinity. If all the constraints are satisifed, it is easy to know that $\lambda_i$ should be equal to 0, and then $\theta_p(x)$ is equal to $f_0(x)$ exactly. Thus, we can minimize $\theta_p(x)$ to enforce the constraint to be satisfied, that is<br>\begin{equation}<br>\min</em>{x}\theta<em>p(x)=\min</em>{x} \max<em>{\lambda_i,v_i: \lambda_i\geq 0} L(x, \lambda, v)<br>\end{equation}<br>then it will be equivalent the standard form. This is the primal problem, in the following we will derive the dual problem. Note that for any $\lambda’$ and $v’$, we have $$\min</em>{x} \max<em>{\lambda_i,v_i: \lambda_i\geq 0} L(x, \lambda, v) \geq \min</em>{x} L(x, \lambda’, v’)$$ (because max $\geq$ any), and then $$\min<em>{x} \max</em>{\lambda<em>i,v_i: \lambda_i\geq 0} L(x, \lambda, v) \geq \max</em>{\lambda<em>i’,v_i’: \lambda_i’\geq 0}\min</em>{x} L(x, \lambda’, v’)$$ (because best is one of any).<br>The right side is the dual problem, and $\min_{x} L(x, \lambda, v)$ is the dual function. Note that the dual problem gives a lower bound to the primal problem. </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibucov8h000018ff9duwk0nk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibx35i82000010ffk5u2vbfi" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
