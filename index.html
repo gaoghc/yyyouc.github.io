@@ -93,13 +93,13 @@
 <p>When the solution $x<em>$, $\lambda</em>$ and $v*$ satisfy the KKT conditions, they are the solution of both primal and dual problems.</p>
 <h4 id="2-2_Dual_SVM">2.2 Dual SVM</h4><p>Based on the above foundation, the dual SVM is as follows<br>$$\max_{\alpha_i\geq 0}{\min_{b,w}\frac{1}{2}w^Tw+\sum_{i=1}^{N}\alpha_i(1-y_i(w^Tx_i+b))}$$</p>
 <p>At first, we solve the inner problem<br> $$\min_{b,w}\frac{1}{2}w^Tw+\sum_{i=1}^{N}\alpha_i(1-y_i(w^Tx_i+b))$$<br> This is an unconstrained problem. It is easy to solve by setting the direvative with respect to $w$ and $b$ as zero. We can get<br> $$<br> \sum_{i=1}^{N}\alpha_iy_i=0 \\<br> \sum_{i=1}^{N}\alpha_iy_ix_i=w<br> $$<br> Then,<br>$$<br>\frac{1}{2}w^Tw+\sum_{i=1}^{N}\alpha_i(1-y_i(w^Tx_i+b)) \\<br>=\frac{1}{2}w^T\sum_{i=1}^{N}\alpha_iy_ix_i+\sum_{i=1}^{N}\alpha_i-w^T\sum_{i=1}^N\alpha_iy_ix_i-b\sum_{i=1}^N\alpha_iy_i \\<br>=\sum_{i=1}^{N}\alpha_i-\frac{1}{2}w^T\sum_{i=1}^{N}\alpha_iy_ix_i \\<br>= \sum_{i=1}^{N}\alpha_i-\frac{1}{2}(\sum_{i=1}^{N}\alpha_iy_ix_i)^T\sum_{i=1}^{N}\alpha_iy_ix_i \\<br>= \sum_{i=1}^{N}\alpha_i-\frac{1}{2}\sum_{i,j=1}^{N}\alpha_i\alpha_jy_iy_jx_i^Tx_j<br>$$<br>Now we have the dual problem as follows.<br>$$<br>\min \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_jy_iy_jx_i^Tx_j-\sum_{i=1}^{N}\alpha_i \\<br>s.t. \alpha_i \geq 0, i=1,…,N \\<br> \sum_{i=1}^{N}\alpha_iy_i=0<br>$$<br>This is a QP with $N$ variables and $N+1$ constraints. Therefore, it can be easily solved by optimization tools. Note that when we solve this QP, the matrix $Q$ consists of $q_{ij}=y_iy_jx_i^Tx_j$ usually is dense. Thus, it needs large storage.</p>
-<p>After we got the solution of the dual problem, how can we get the primal solution $w$ and $b$? Note that $w=\sum_{i=1}^{N}\alpha_iy_ix_i$. Whats more, according to the KKT dual complementary conditions,$\alpha_i(1-y_i(w^Tx_i+b))=0$, if $\alpha_i&gt;0$, $1-y_i(w^Tx_i+b)=0$, that is $b=y_i-w^Tx_i$. Note that $\alpha_i&gt;0$ means $y_i(w^Tx_i+b)=1$, thus this points locates on the boundary. Such points are called <strong>support vector</strong>. </p>
-<p>After obtainning the optimal $w$ and $b$ from the trainning data, we can classify the test data by the following formula.<br>$$<br>w^Tx+b=(\sum_{i=1}^N\alpha_iy<em>ix_i)^Tx+b=\sum\</em>{i=1}^N\alpha_iy_i<x_i,x>+b<br>$$<br>Note that we only need to calculate the inner product between the testing data and the support vector (corresponds to $\alpha_i&gt;0$) rather than the whole training data, thus it is efficient.</x_i,x></p>
+<p>After we got the solution of the dual problem, how can we get the primal solution $w$ and $b$? Note that $w=\sum_{i=1}^{N}\alpha_iy_ix_i$. Whats more, according to the KKT dual complementary conditions,$\alpha_i(1-y_i(w^Tx_i+b))=0$, if $\alpha_i&gt;0$, $1-y_i(w^Tx_i+b)=0$, that is $b=y_i-w^Tx_i$. Note that $\alpha_i&gt;0$ means $y_i(w^Tx_i+b)=1$, thus this point locates on the boundary. Such points are called <strong>support vector</strong>. </p>
+<p>After obtainning the optimal $w$ and $b$ from the trainning data, we can classify the test data by the following formula.<br>$$<br>w^Tx+b=(\sum_{i=1}^N\alpha_iy_ix_i)^Tx+b=\sum_{i=1}^N\alpha_iy_i<x\_i,x>+b<br>$$<br>Note that we only need to calculate the inner product between the testing data and the support vector (corresponds to $\alpha_i&gt;0$) rather than the whole training data, thus it is efficient.</x\_i,x></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibyjjff100002wffz9mf5wsx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cibyks20600005cff2elfy5tv" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -148,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibyjjffx00032wffv0j4ld2j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cibyks21400035cffvyyu5q6e" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
