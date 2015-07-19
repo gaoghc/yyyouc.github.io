@@ -94,12 +94,12 @@
 </ul>
 <p>In fact, given a data point, we can give an assumption about the category which it belongs to. Such assumption maybe right or not. However, such a data point has some features. Therefore, under such a assumption, we can use these features of the data point to justify whether the assumtion is proper. If so, we will get a large posterior probability. Otherwise, we will get a small one.<br>This is the basic idea of Bayes formula. It can be interpreted as follows:<br>$$<br>posterior = \frac{likelihood\times prior}{evidence}<br>$$<br>This formula shows that by observing the value of $x$ we can convert the prior probability $P(w_j)$to the a  posterior probability $P(w_j|x)$.</p>
 <h2 id="Loss_Function">Loss Function</h2><p>Now we can use Bayes formula to give decision about the classification. But how to measure the cost of our decision?</p>
-<p>At first, let us define a function<br>$$<br>I(\alpha_j|w_i)=\left{<br>\begin{aligned}<br>0 &amp;&amp; i=j \\<br>1 &amp;&amp; i \neq j \\<br>\end{aligned}<br>\right.<br>$$<br>Then, the loss function can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x) \<br>= \sum_{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>where $P(w_j|x)$ is the probability that the true state of nature is $w_j$, $\alpha_i$ is the action we take, and $L(\alpha_i|x)$ is the cost that we take action $\alpha_i$.<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words, decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
+<p>At first, let us define a function<br>$$<br>I(\alpha_j|w_i)=\left\{<br>\begin{aligned}<br>0 &amp;&amp; i=j \\<br>1 &amp;&amp; i \neq j \\<br>\end{aligned}<br>\right.<br>$$<br>Then, the loss function can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x) \<br>= \sum_{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>where $P(w_j|x)$ is the probability that the true state of nature is $w_j$, $\alpha_i$ is the action we take, and $L(\alpha_i|x)$ is the cost that we take action $\alpha_i$.<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words, decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9vxovv0000cgff3fjjvwih" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9vz8hp0000b0ffcvc4os89" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
