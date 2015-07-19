@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | YYYOUC</title>
+  <title>Bayesian Decision Theory | YYYOUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="IntroductionBayesian decision theory is a fundamental statistical method to the problem of pattern classification. It is to use the probability to perform classification decision. It has two assumptio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/05/17/hello-world/index.html">
+<meta property="og:title" content="Bayesian Decision Theory">
+<meta property="og:url" content="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/index.html">
 <meta property="og:site_name" content="YYYOUC">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta property="og:description" content="IntroductionBayesian decision theory is a fundamental statistical method to the problem of pattern classification. It is to use the probability to perform classification decision. It has two assumptio">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Bayesian Decision Theory">
+<meta name="twitter:description" content="IntroductionBayesian decision theory is a fundamental statistical method to the problem of pattern classification. It is to use the probability to perform classification decision. It has two assumptio">
   
     <link rel="alternative" href="/atom.xml" title="YYYOUC" type="application/atom+xml">
   
@@ -62,10 +59,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Bayesian-Decision-Theory" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/05/17/hello-world/" class="article-date">
-  <time datetime="2015-05-18T01:29:05.546Z" itemprop="datePublished">2015-05-17</time>
+    <a href="/2015/07/18/Bayesian-Decision-Theory/" class="article-date">
+  <time datetime="2015-07-19T01:38:12.000Z" itemprop="datePublished">2015-07-18</time>
 </a>
     
   </div>
@@ -76,7 +73,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Bayesian Decision Theory
     </h1>
   
 
@@ -84,25 +81,30 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="Introduction">Introduction</h2><p>Bayesian decision theory is a fundamental statistical method to the problem of pattern classification. It is to use the probability to perform classification decision. It has two assumptions:</p>
+<ul>
+<li>the decision problem is posed in probilistic terms;</li>
+<li>all the involved probability values are known.</li>
+</ul>
+<h2 id="Bayes_Formula">Bayes Formula</h2><p>Bayes formula is the basis of the Bayesian decision theory. It is defined as follows:<br>$$<br>P(w<em>j|x)=\frac{p(x|w_j)P(w_j)}{p(x)}<br>$$<br>where $P(w_j|x)$ is the posterior probability, $P(w_j)$ is the prior probability and $p(x|w_j)$ is the conditional probability density. And $p(x)=\sum</em>{j=1}^{n}p(x|w_j)P(w_j)$.<br>But what is the meaning of prior probability, posterior probability and the conditional probability density?</p>
+<ul>
+<li>Prior probability is the assumption that we give to a problem. It may be correct or not. However, we can use conditional probability density to justify it.</li>
+<li>Conditional probability density is the likelihood of $w_j$ with respect to $x$. If it is large, it means that $w_j$ is more “likely” to be the true category.</li>
+<li>Posterior probability is the justified assumption. </li>
+</ul>
+<p>In fact, given a data point, we can give an assumption about the category which it belongs to. Such assumption maybe right or not. However, such a data point has some features. Therefore, under such a assumption, we can use these features of the data point to justify whether the assumtion is proper. If so, we will get a large posterior probability. Otherwise, we will get a small one.<br>This is the basic idea of Bayes formula. It can be interpreted as follows:<br>$$<br>posterior = \frac{likelihood\times prior}{evidence}<br>$$<br>This formula shows that by observing the value of $x$ we can convert the prior probability $P(w_j)$to the a  posterior probability $P(w_j|x)$.</p>
+<h2 id="Loss_Function">Loss Function</h2><p>Now we can use Bayes formula to give decision about the classification. But how to measure the cost of our decision?</p>
+<p>At first, let us define a function<br>$$<br>I(\alpha<em>j|w_i)=\left{<br>\begin{aligned}<br>0 &amp;&amp; i=j \<br>1 &amp;&amp; i \neq j \<br>\end{aligned}<br>\right.<br>$$<br>Then, the loss function can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum</em>{j=1}^{c}I(\alpha<em>i|w_j)P(w_j|x) \<br>= \sum</em>{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>where $P(w_j|x)$ is the probability that the true state of nature is $w_j$, $\alpha_i$ is the action we take, and $L(\alpha_i|x)$ is the cost that we take action $\alpha_i$.<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words,<br>    Decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cic9vqwui0003r4ff092rrfd6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9vqwtn0000r4ff5jdn4asi" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
 
     </footer>
   </div>
@@ -110,15 +112,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/07/Support Vector Machine/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Support Vector Machine
-        
-      </div>
-    </a>
   
+    <a href="/2015/07/07/Support Vector Machine/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Support Vector Machine</div>
+    </a>
   
 </nav>
 
@@ -239,7 +237,7 @@ Quick">
 <script>
   var disqus_shortname = 'yyyouc';
   
-  var disqus_url = 'http://yoursite.com/2015/05/17/hello-world/';
+  var disqus_url = 'http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -273,6 +271,37 @@ MathJax.Hub.Config({
 
 	
 
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
   </div>
