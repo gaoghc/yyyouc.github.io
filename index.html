@@ -98,6 +98,10 @@
 <h2 id="Loss_Function">Loss Function</h2><p>Now we can use Bayes formula to give decision about the classification. But how to measure the cost of our decision?</p>
 <p>Since $P(w_j|x)$ is the probability that the true state of nature is $w_j$ , the expected loss associated with taking action $\alpha_i$ is<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x)<br>$$<br>In decision-theoretic terminology, an expected loss is called a <strong>risk</strong>, and $L(\alpha_i|x)$ is called the <strong>conditional risk</strong>. Whenever we encounter a particular observation $x$, we can minimize our expected loss by selecting the action that minimizes the conditional risk. Since $L(\alpha_i|x)$ is the conditional risk, overall risk is given by<br>$$<br>L=\int L(\alpha(x)|x)p(x)dx<br>$$<br>Clearly, if $\alpha(x)$ is chosen such that $L(\alpha(x))$ is as small as possible for every $x$, then the overall risk will be minimized. This justifies the following statement of the Bayes decision rule: To minimize the overall risk, compute the conditional risk<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x)<br>$$<br>and select the action $\alpha_i$ for which $L(\alpha_i|x)$ is minimum. The resulting minimum overall risk is called the <strong>Bayes risk</strong>.</p>
 <p>Now, let us define a function<br>$$<br>I(\alpha_j|w_i)=\left\{<br>\begin{aligned}<br>0 &amp;&amp; i=j \\<br>1 &amp;&amp; i \neq j \\<br>\end{aligned}<br>\right.<br>$$<br>Then, the conditional risk can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x) \<br>= \sum_{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words, decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
+<h2 id="Bayes_Classifier">Bayes Classifier</h2><p>There are many different ways to represent pattern classifiers. One of the most useful is in terms of a set of discriminant functions $g_i(x), i = 1\cdots c$. The classifier is said to assign a data point $x$ to class $w_i$ if for all $j\neq i$<br>$$<br>g_i(x)&gt;g_j(x)<br>$$</p>
+<p>A Bayes classifier is easily and naturally represented in this way. For the general case with risks, we can let $g_i(x) = -L(\alpha_i|x)$, since the maximum discriminant function will then correspond to the minimum conditional risk. For the minimum-error-rate case, we can simplify things further by taking $g_i(x) = P(w_j|x)$, so that the maximum discriminant function corresponds to the maximum posterior probability.</p>
+<p>Clearly, the choice of discriminant functions is not unique. We can always multiply all the discriminant functions by the same positive constant or shift them by the same additive constant without influencing the decision. More generally, if we replace every $g_i(x)$ by $f(g_i(x))$, where $f(.)$ is a monotonically increasing function, the resulting classification is unchanged. This observation can lead to significant analytical and computational simplifications. In particular, for minimum-error-rate classification, any of the following choices gives identical classification results, but some can be<br>much simpler to understand or to compute than others:<br>$$<br>g_i(x)=P(w_i|x) \<br>g_i(x) = p(x|w_i)P(w_i) \<br>g_i(x) = lnp(x|w_i)+lnP(w_i)<br>$$</p>
+<p>Even though the discriminant functions can be written in a variety of forms, the decision rules are equivalent. The effect of any decision rule is to divide the feature space into $c$ decision regions, $R_1,\cdots, R_c$. If $g_i(x) &gt; g_j(x)$ for all $j\neq i$, then $x$ is in region $R_i$, and the decision rule calls for us to assign $x$ to $w_i$. The regions are separated<br>by decision boundaries, surfaces in feature space where ties occur among the largest discriminant functions.</p>
 <h2 id="Naïve_Bayes_Method">Naïve Bayes Method</h2><p>Naïve Bayes is a subset of Bayesian decision theory. It uses the Bayesian decision theory to do classification. Here, Naïve means the features of the data point are independent to each other.</p>
 <p>Given a data point $x=(x_1, x_2,\cdots,x_n)$ where $x_i$ is the $i$-th feature of the data point, and given classes $c_1, c_2, \cdots, c_k$. If $P(c_i|x)&gt;P(c_j|x)$ for all $j\neq i$, then data point $x$ belongs to class $c_i$. Specifically,<br>$$<br>P(c_i|x)=\frac{p(x|c_i)P(c_i)}{p(x)}<br>$$<br>Due to the independence of the features, $p(x|c_i)=p(x_1|c_i)p(x_2|c_i)\cdots p(x_n|c_i)$.</p>
 <p>This is the basic idea of Naïve Bayes method.</p>
@@ -105,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9y2i9e00003gffv2cc6bmw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9ytunz0000iwffqo1i4j0y" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -157,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cic9y2ib400063gff520nj9ho" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cic9ytupa0006iwff4clu0f26" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -206,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cic9y2iap00033gffr8t711ob" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cic9ytupa0003iwff3yxh5w7n" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
