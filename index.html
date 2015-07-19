@@ -88,7 +88,7 @@
 <li>the decision problem is posed in probilistic terms;</li>
 <li>all the involved probability values are known.</li>
 </ul>
-<h2 id="Bayes_Formula">Bayes Formula</h2><p>Bayes formula is the basis of the Bayesian decision theory. It is defined as follows:<br>$$<br>P(w<em>j|x)=\frac{p(x|w_j)P(w_j)}{p(x)}<br>$$<br>where $P(w_j|x)$ is the posterior probability, $P(w_j)$ is the prior probability and $p(x|w_j)$ is the conditional probability density. And $p(x)=\sum</em>{j=1}^{n}p(x|w_j)P(w_j)$.<br>But what is the meaning of prior probability, posterior probability and the conditional probability density?</p>
+<h2 id="Bayes_Formula">Bayes Formula</h2><p>Bayes formula is the basis of the Bayesian decision theory. It is defined as follows:<br>$$<br>P(w_j|x)=\frac{p(x|w_j)P(w_j)}{p(x)}<br>$$<br>where $P(w_j|x)$ is the posterior probability, $P(w_j)$ is the prior probability and $p(x|w_j)$ is the conditional probability density. And $p(x)=\sum_{j=1}^{n}p(x|w_j)P(w_j)$.<br>But what is the meaning of prior probability, posterior probability and the conditional probability density?</p>
 <ul>
 <li>Prior probability is the assumption that we give to a problem. It may be correct or not. However, we can use conditional probability density to justify it.</li>
 <li>Conditional probability density is the likelihood of $w_j$ with respect to $x$. If it is large, it means that $w_j$ is more “likely” to be the true category.</li>
@@ -96,12 +96,12 @@
 </ul>
 <p>In fact, given a data point, we can give an assumption about the category which it belongs to. Such assumption maybe right or not. However, such a data point has some features. Therefore, under such a assumption, we can use these features of the data point to justify whether the assumtion is proper. If so, we will get a large posterior probability. Otherwise, we will get a small one.<br>This is the basic idea of Bayes formula. It can be interpreted as follows:<br>$$<br>posterior = \frac{likelihood\times prior}{evidence}<br>$$<br>This formula shows that by observing the value of $x$ we can convert the prior probability $P(w_j)$to the a  posterior probability $P(w_j|x)$.</p>
 <h2 id="Loss_Function">Loss Function</h2><p>Now we can use Bayes formula to give decision about the classification. But how to measure the cost of our decision?</p>
-<p>At first, let us define a function<br>$$<br>I(\alpha<em>j|w_i)=\left{<br>\begin{aligned}<br>0 &amp;&amp; i=j \<br>1 &amp;&amp; i \neq j \<br>\end{aligned}<br>\right.<br>$$<br>Then, the loss function can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum</em>{j=1}^{c}I(\alpha<em>i|w_j)P(w_j|x) \<br>= \sum</em>{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>where $P(w_j|x)$ is the probability that the true state of nature is $w_j$, $\alpha_i$ is the action we take, and $L(\alpha_i|x)$ is the cost that we take action $\alpha_i$.<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words,<br>    Decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
+<p>At first, let us define a function<br>$$<br>I(\alpha_j|w_i)=\left{<br>\begin{aligned}<br>0 &amp;&amp; i=j \<br>1 &amp;&amp; i \neq j \<br>\end{aligned}<br>\right.<br>$$<br>Then, the loss function can be defined as follows.<br>$$<br>L(\alpha_i|x)=\sum_{j=1}^{c}I(\alpha_i|w_j)P(w_j|x) \<br>= \sum_{j\neq i}P(w_j|x) \<br>= 1-P(w_i|x)<br>$$<br>where $P(w_j|x)$ is the probability that the true state of nature is $w_j$, $\alpha_i$ is the action we take, and $L(\alpha_i|x)$ is the cost that we take action $\alpha_i$.<br>From the definition of the loss function, we can conclude that minimizing loss function $L(\alpha_i|x)$ is to maximize the posterior probability $P(w_j|x)$. In other words,<br>    Decide $w_i$ if $P(w_i|x)&gt;P(w_j|x)$ for all $j\neq i$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9vqwtn0000r4ff5jdn4asi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cic9vvvn700009kffzzwune90" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cic9vqwui0006r4ffrtr6c72u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cic9vvvo200069kffc6rhicah" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -202,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cic9vqwui0003r4ff092rrfd6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cic9vvvnn00039kffrxwbwtbf" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
