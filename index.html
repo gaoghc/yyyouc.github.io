@@ -87,14 +87,25 @@
 <p>There are two category method about estimate density. That is <strong>parametric method</strong> and <strong>nonparametric method</strong>. For the parametric method, it assumes that the dataset follows a specific functional form for the distribution with unknown parameters. Then density estimation is transformed to the parameter estimation. For the nonparametric method, the form of the distribution typically depends on the size of the dataset. For example, the histogram method. </p>
 <p>In the following, we will talk about the parametric method. The parametric method includes two kinds of method: <strong>maximum likelihood</strong> and <strong>Bayesian method</strong>. </p>
 <ul>
-<li>Maximum likelihood views the parameters as quantities whose values are fixed but unknown. The best estimate of their value is defined to be the one that maximizes the probability of obtaining the samples actually observed.</li>
-<li>Bayesian methods view the parameters as random variables having some known a priori distribution. Observation of the samples converts this to a posterior density, thereby revising our opinion about the true values of the parameters.</li>
+<li>Maximum likelihood assumes the samples follows a specific form of distribution whose parameters are <strong>fixed</strong> but unknown. Thus, this method is to estimate the <strong>value of the parameter</strong>. The best estimate of their value is defined to be the one that maximizes the probability of obtaining the samples actually observed.<ul>
+<li>Bayesian method views the samples follows a specific form of distribution whose parameters are <strong>random variables</strong> having some known a priori distribution. Thus, this method is to estimate the <strong>distribution of the parameter</strong>, that is the posterior distribution of the parameter.</li>
 </ul>
+</li>
+</ul>
+<h2 id="Maximum_Likelihood_Estimation">Maximum Likelihood Estimation</h2><p>As above, we have already know the form of the distribution, but we do not know the value of the parameters. Thus, we need to estimate the value of the parameters. </p>
+<p>Denote the parameter as $\theta$, and the $i$-th class (we assume different class has different parameter and they do not affect each other) dataset $D={x_1, x_2,\cdots, x_n}$ drawn independently from the probability density $p(x|\theta)$. Our duty is to estimate the unkown parameter $\theta$ according to dataset $D$.</p>
+<p>It is easy to know<br>$$<br>p(D|\theta)=\prod_{i=1}^np(x_i|\theta)<br>$$<br>where $p(D|\theta)$ is called the $likelihood$ of $\theta$ with respect to the set of samples. The maximum likelihood estimate of $\theta$ is the value that maximizes $p(D|\theta)$. Intuitively, <strong>this estimate corresponds to the value of $\theta$ that in some sense best agrees with or supports the actually observed training samples</strong>.</p>
+<p>To get the optimal $\theta$, we define the log-likelihood function<br>$$<br>l(\theta)=lnp(D|\theta)=\sum_{i=1}^nlnp(x_i|\theta)<br>$$<br>We can take the derivative of $l(\theta)$ with respect to $\theta$ and set it as zero to get the optimal $\theta$.</p>
+<p>This is the basic idea of maximum likelihood estimation.</p>
+<h2 id="Bayesian_Estimation">Bayesian Estimation</h2><p>Bayesian estimation also knows the form of the distribution with unkown parameters. But the parameters are random variables, following a prior distribution. Thus, our duty is to estimate such a distribution. That is the posterior distribution of the unkown paramethers.</p>
+<p>Denote $p(x|D)$ as the desired class-conditional probability density where $D$ is the training samples and $x$ is the testing sample, then<br>$$<br>p(x|D)=\int p(x,\theta|D)d\theta=\int p(x|\theta)p(\theta|D)d\theta<br>$$<br>where $p(\theta|D)$ is the the posterior density for the unknown parameter, $p(x|\theta)$ is the class-conditional probability density with unkown parameters $\theta$. Therefore, once we know the distribution $p(\theta|D)$, we will know $p(x|\theta)$. At last, we can get the desired class-conditional probability density $p(x|D)$. Thus, <strong>the most important is to estimate $p(\theta|D)$</strong>.</p>
+<p>According to Bayes’ formula<br>$$<br>p(\theta|D)=\alpha p(D|\theta)p(\theta)=\alpha \prod_{i=1}^np(x_i|\theta)p(\theta)<br>$$<br>where $p(\theta)$ is the prior probability density and $p(x_i|\theta)$ is the class-conditional probability density with unkown parameters $\theta$.</p>
+<p>This is the basic idea of Bayesian estimation.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="ciccnwof10008doff8uzen3uj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="ciccr07ws0008y4ff9km3023a" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -156,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="ciccnwodd0000doff3alx3yug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="ciccr07v60000y4ffgd46cq38" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -208,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="ciccnwoey0006doff8ei8bl6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="ciccr07wi0006y4ffxr1vlu5e" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="ciccnwoet0003doffkdxl1wcb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="ciccr07we0003y4ffu2mmoqq9" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
