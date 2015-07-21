@@ -99,11 +99,12 @@
 <p>Denote $p(x|D)$ as the desired class-conditional probability density where $D$ is the training samples and $x$ is the testing sample, then<br>$$<br>p(x|D)=\int p(x,\theta|D)d\theta=\int p(x|\theta)p(\theta|D)d\theta<br>$$<br>where $p(\theta|D)$ is the the posterior density for the unknown parameter, $p(x|\theta)$ is the class-conditional probability density with unkown parameters $\theta$. Therefore, once we know the distribution $p(\theta|D)$, we will know $p(x|\theta)$. At last, we can get the desired class-conditional probability density $p(x|D)$. Thus, <strong>the most important is to estimate $p(\theta|D)$</strong>.</p>
 <p>According to Bayes’ formula<br>$$<br>p(\theta|D)=\alpha p(D|\theta)p(\theta)=\alpha \prod_{i=1}^np(x_i|\theta)p(\theta)<br>$$<br>where $p(\theta)$ is the prior probability density and $p(x_i|\theta)$ is the class-conditional probability density with unkown parameters $\theta$.</p>
 <p>This is the basic idea of Bayesian estimation.</p>
+<p>All in all, the maximum likelihood approach estimates a point in $\theta$ space, the<br>Bayesian approach instead estimates a distribution.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="ciccr07ws0008y4ff9km3023a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="ciccr63va000868ff61bi1z98" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
