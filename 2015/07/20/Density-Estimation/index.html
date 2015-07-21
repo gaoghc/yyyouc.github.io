@@ -5,15 +5,15 @@
   
   <title>Density Estimation | YYYOUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionWe have talked about the Bayesian Decision Theory">
+  <meta name="description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Density Estimation">
 <meta property="og:url" content="http://yoursite.com/2015/07/20/Density-Estimation/index.html">
 <meta property="og:site_name" content="YYYOUC">
-<meta property="og:description" content="IntroductionWe have talked about the Bayesian Decision Theory">
+<meta property="og:description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Density Estimation">
-<meta name="twitter:description" content="IntroductionWe have talked about the Bayesian Decision Theory">
+<meta name="twitter:description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
   
     <link rel="alternative" href="/atom.xml" title="YYYOUC" type="application/atom+xml">
   
@@ -81,12 +81,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction">Introduction</h1><p>We have talked about the <a href="Bayesian-Decision-Theory.md">Bayesian Decision Theory</a></p>
+        <h1 id="Introduction">Introduction</h1><p>In <a href="Bayesian-Decision-Theory.md">Bayesian Decision Theory</a>, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)$. But how to get $p(x|w_i)$ and $p(w_i)$? In practice, it is easy to get $p(w_i)$. Therefore, we will mainly talk about how to estimate the class-conditional probability density based on the given dataset.</p>
+<p>There are two category method about estimate density. That is <strong>parametric method</strong> and <strong>nonparametric method</strong>. For the parametric method, it assumes that the dataset follows a specific functional form for the distribution with unknown parameters. Then density estimation is transformed to the parameter estimation. For the nonparametric method, the form of the distribution typically depends on the size of the dataset. For example, the histogram method. </p>
+<p>In the following, we will talk about the parametric method. The parametric method includes two kinds of method: <strong>maximum likelihood</strong> and <strong>Bayesian method</strong>. </p>
+<ul>
+<li>Maximum likelihood views the parameters as quantities whose values are fixed but unknown. The best estimate of their value is defined to be the one that maximizes the probability of obtaining the samples actually observed.</li>
+<li>Bayesian methods view the parameters as random variables having some known a priori distribution. Observation of the samples converts this to a posterior density, thereby revising our opinion about the true values of the parameters.</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicclz2kf000838fffooy3ba6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="ciccnwof10008doff8uzen3uj" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
