@@ -85,7 +85,7 @@
       
         <h1 id="1-_Convexity">1. Convexity</h1><h2 id="1-1_Definition">1.1 Definition</h2><p>$f$ is convex if $dom f$ is a convex set and Jensen’s inequality holds:<br>$$<br>f(\theta x+(1-\theta) y)\leq \theta f(x)+(1-\theta)f(y)<br>$$<br>for all $x,y\in dom f$ and $\theta \in [0,1]$.</p>
 <h2 id="1-2_First-order_condition">1.2 First-order condition</h2><p>For differentiable $f$,<br>$$<br>f(y)\geq f(x)+ \nabla f(x)^T(y-x)<br>$$<br>for all $x,y\in dom f$</p>
-<h2 id="1-3_Second-order_condition">1.3 Second-order condition</h2><p>Fir twice differentiable $f$,<br>$$<br>\nabla^2 f(x) \geq 0<br>$$<br>for all $x \in dom f$</p>
+<h2 id="1-3_Second-order_condition">1.3 Second-order condition</h2><p>For twice differentiable $f$,<br>$$<br>\nabla^2 f(x) \geq 0<br>$$<br>for all $x \in dom f$</p>
 <h1 id="2-_Lipschitz_Continuous_Gradient">2. Lipschitz Continuous Gradient</h1><h2 id="2-1_Definition">2.1 Definition</h2><p>Gradient of $f$ is Lipchitz continous with parameter $L&gt;0$ if<br>$$<br>||\nabla f(x)-\nabla f(y)||_2 \leq L||x-y||_2<br>$$<br>for all $x,y\in dom f$</p>
 <ul>
 <li>Note that the definition does not assume convexity of $f$</li>
@@ -94,11 +94,14 @@
 </ul>
 <h2 id="2-2_Quadatic_upper_bound">2.2 Quadatic upper bound</h2><p>Suppose $\nabla f$ is Lipschitz continous with parameter $L$ and $dom f$ is convex, then<br>$$<br>f(y)\leq f(x) + \nabla f(x)^T(y-x)+\frac{L}{2}||y-x||_2^2<br>$$<br>for all $x,y\in dom f$.</p>
 <p>Therefore, for convex $f$ with Lipschitz continous gradient, we have<br>$$<br>f(x) + \nabla f(x)^T(y-x) \leq f(y)\leq f(x) + \nabla f(x)^T(y-x)+\frac{L}{2}||y-x||_2^2<br>$$<br>Just as shown in the following figure.</p>
-<h1 id="3-_Strongly_Convex_Function">3. Strongly Convex Function</h1>
+<h1 id="3-_Strongly_Convex_Function">3. Strongly Convex Function</h1><h2 id="3-1_Definition">3.1 Definition</h2><p>Function $f$ is strongly convext with parameter $\mu&gt;0$ if function<br>$$<br>g(x)=f(x)-\frac{m}{2}x^Tx<br>$$<br>is convex.</p>
+<h2 id="3-2_First-order_condition">3.2 First-order condition</h2><p>For differentiable $f$,<br>$$<br>f(y)\geq f(x)+\nabla f(x)^T(y-x)+\frac{\mu}{2}||y-x||_2^2<br>$$<br>for all $x,y\in dom f$. It is also called <strong>quadratic lower bound</strong>, just as shown in following figure.</p>
+<h2 id="3-3_Second-order_condition">3.3 Second-order condition</h2><p>For twice differentiable $f$,<br>$$<br>\nabla^2 f(x) \geq \mu I<br>$$<br>for all $x \in dom f$.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cicdqyuzu000ajwffhprtccua" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cicdrbxer000a30ffkg7527f5" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -157,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicdqyuzs0008jwffosj78ifx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicdrbxep000830ffwmkhzn8o" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -219,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cicdqyuyv0000jwfffwzxy166" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cicdrbxd4000030ffphqdggzq" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -271,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cicdqyuzp0006jwfffylfmsfs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cicdrbxem000630ffp5f1zodw" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -320,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cicdqyuzi0003jwff7toplsmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cicdrbxec000330ffe5g4vq3o" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
