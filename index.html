@@ -98,14 +98,17 @@
 <p>The first strategy is the simplest one. Indeed, it is often used, but only in convex optimization, where the behavior of functions is much more predictable than in the general nonlinear case.</p>
 <p>The second strategy is completely theoretical. It is never used in practice since even in one-dimensional case we cannot find an exact minimum of a function in finite time.</p>
 <p>The third strategy is used in the majority of the practical algorithms. We will talk about this strategy in the future work.</p>
-<h2 id="Convergence_of_GD_with_Fixed_Step_Size">Convergence of GD with Fixed Step Size</h2><p>Since $f$ is Lipschitz continous, therefore, for $x_{k+1}=x_{k}-t\nabla f(x)$, we have<br>$$<br>f(x_{k+1})\leq f(x_{k})-\nabla f(x)^T(x_{k+1}-x_{k}) + \frac{L}{2}||x_{k+1}-x_{k}||_2^2 = f(x_k)-t(1-\frac{Lt}{2})||\nabla f(x)||_2^2<br>$$<br>If we set $t\leq 1/L$, then<br>$$<br>f(x_{k+1})\leq f(x_{k})- \frac{t}{2} ||\nabla f(x_k)||_2^2 \\<br>\leq f(x^{opt})+ \nabla f(x_k)^T(x_k-x^{opt})- \frac{t}{2} ||\nabla f(x_k)||_2^2 \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2-||x_k-x^{opt}||_2^2 + 2t \nabla f(x_k)^T(x_k-x^{opt})-t^2 ||\nabla f(x_k)||_2^2) \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2 - ||x_k-x^{opt}-t\nabla f(x_k)||_2^2) \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2 - ||x_{k+1}-x^{opt}||_2^2)<br>$$</p>
+<h2 id="Convergence_of_General_Convex_Function">Convergence of General Convex Function</h2><p>Since $f$ is Lipschitz continous, therefore, for $x_{k+1}=x_{k}-t\nabla f(x)$, we have<br>$$<br>f(x_{k+1})\leq f(x_{k})-\nabla f(x)^T(x_{k+1}-x_{k}) + \frac{L}{2}||x_{k+1}-x_{k}||_2^2 = f(x_k)-t(1-\frac{Lt}{2})||\nabla f(x)||_2^2<br>$$<br>If we set $t\leq 1/L$, then<br>$$<br>f(x_{k+1})\leq f(x_{k})- \frac{t}{2} ||\nabla f(x_k)||_2^2 \\<br>\leq f(x^{opt})+ \nabla f(x_k)^T(x_k-x^{opt})- \frac{t}{2} ||\nabla f(x_k)||_2^2 \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2-||x_k-x^{opt}||_2^2 + 2t \nabla f(x_k)^T(x_k-x^{opt})-t^2 ||\nabla f(x_k)||_2^2) \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2 - ||x_k-x^{opt}-t\nabla f(x_k)||_2^2) \\<br>= f(x^{opt})+ \frac{1}{2t} (||x_k-x^{opt}||_2^2 - ||x_{k+1}-x^{opt}||_2^2)<br>$$</p>
 <p>Therefore, we have<br>$$<br>\sum_{i=1}^k (f(x_i)-f(x^{opt})) \leq \frac{1}{2t}\sum_{i=1}^k (||x_{i-1}-x^{opt}||_2^2-||x_{i}-x^{opt}||_2^2) \\<br>= \frac{1}{2t} (||x_{0}-x^{opt}||_2^2-||x_{k}-x^{opt}||_2^2) \\<br>\leq \frac{1}{2t} ||x_{0}-x^{opt}||_2^2<br>$$<br>Since $f(x_i)$ is non-increasing, we have<br>$$<br>f(x_k)-f(x^{opt}) \leq \frac{1}{k} \sum_{i=1}^k (f(x_i)-f(x^{opt})) \leq \frac{1}{2kt} ||x_{0}-x^{opt}||_2^2<br>$$</p>
 <p>As a result, the number of iterations to reach $f(x_k)-f(x^{opt}) \leq \epsilon$ is $O(1/ \epsilon)$.</p>
-<h2 id="Convergence_of_GD_with_Backtracking_Line_Search">Convergence of GD with Backtracking Line Search</h2>
+<h2 id="Convergence_of_Strongly_Convex_Function">Convergence of Strongly Convex Function</h2><p>For strongly convex function, we have<br>$$<br>f(y)\geq f(x)+\nabla f(x)^T(y-x)+\frac{\mu}{2}||y-x||_2^2<br>$$</p>
+<p>If $x_{k+1}=x_{k}-t\nabla f(x)$ and 0\leq t\leq 2/(\mu+L), we have<br>$$<br>||x_{k+1}-x^{opt}||_2^2=||x_k-t \nabla f(x_k)-x^{opt}||_2^2 \\<br>= ||x_{k}-x^{opt}||_2^2 - 2t\nabla f(x_k)^T(x_k-x^{opt})+t^2||\nabla f(x_k)||_2^2 \\<br>\leq (1-t\frac{2mL}{m+L})||x_k-x^{opt}||_2^2+t(t-\frac{2}{m+L})||\nabla f(x_k)||_2^2 \\<br>\leq (1-t\frac{2mL}{m+L})||x_k-x^{opt}||_2^2<br>$$<br>Thus, $||x_k-x^{opt}||_2^2 \leq (1-t\frac{2mL}{m+L})^k ||x_0-x^{opt}||_2^2$ , which implies linear convergence.</p>
+<p>Due to the quadratic upper bound of function with Lipschitz continous gradient, we have<br>$$<br>f(x_{k})-f(x^{opt}) \leq \frac{L}{2}||x_{k}-x^{opt}||_2^2 \leq \frac{c^k L}{2}||x_{0}-x^{opt}||_2^2<br>$$<br>As a result, the number of iterations to reach $f(x_k)-f(x^{opt}) \leq \epsilon$ is $O(log(1/ \epsilon))$.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cicjxcw3e00089gffc3hyen36" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cicjybk3c0008ysffrp90phs0" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -153,14 +156,14 @@
 </ul>
 <h2 id="2-2_Quadatic_upper_bound">2.2 Quadatic upper bound</h2><p>Suppose $\nabla f$ is Lipschitz continous with parameter $L$ and $dom f$ is convex, then<br>$$<br>f(y)\leq f(x) + \nabla f(x)^T(y-x)+\frac{L}{2}||y-x||_2^2<br>$$<br>for all $x,y\in dom f$.</p>
 <p>Therefore, for convex $f$ with Lipschitz continous gradient, we have<br>$$<br>f(x) + \nabla f(x)^T(y-x) \leq f(y)\leq f(x) + \nabla f(x)^T(y-x)+\frac{L}{2}||y-x||_2^2<br>$$<br>Just as shown in the following figure.</p>
-<h1 id="3-_Strongly_Convex_Function">3. Strongly Convex Function</h1><h2 id="3-1_Definition">3.1 Definition</h2><p>Function $f$ is strongly convext with parameter $\mu&gt;0$ if function<br>$$<br>g(x)=f(x)-\frac{m}{2}x^Tx<br>$$<br>is convex.</p>
+<h1 id="3-_Strongly_Convex_Function">3. Strongly Convex Function</h1><h2 id="3-1_Definition">3.1 Definition</h2><p>Function $f$ is strongly convext with parameter $\mu&gt;0$ if function<br>$$<br>g(x)=f(x)-\frac{\mu}{2}x^Tx<br>$$<br>is convex.</p>
 <h2 id="3-2_First-order_condition">3.2 First-order condition</h2><p>For differentiable $f$,<br>$$<br>f(y)\geq f(x)+\nabla f(x)^T(y-x)+\frac{\mu}{2}||y-x||_2^2<br>$$<br>for all $x,y\in dom f$. It is also called <strong>quadratic lower bound</strong>, just as shown in following figure.</p>
 <h2 id="3-3_Second-order_condition">3.3 Second-order condition</h2><p>For twice differentiable $f$,<br>$$<br>\nabla^2 f(x) \geq \mu I<br>$$<br>for all $x \in dom f$.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cicjxcw3j000d9gff3biyh5t4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cicjybk3g000dysffnbvqy8wr" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -219,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicjxcw3h000b9gffde9ff80v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicjybk3e000bysffa8s6ivel" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -281,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cicjxcw2000009gffktamrmji" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cicjybk2b0000ysffey1a1fnw" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -333,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cicjxcw3c00069gff76m68erc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cicjybk3a0006ysffaozdy51t" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -382,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cicjxcw3200039gff72shhavq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cicjybk360003ysffyvrcuqg3" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
