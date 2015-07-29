@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Density Estimation | YYYOUC</title>
+  <title>Subgradient Method | YYYOUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
+  <meta name="description" content="IntroductionGradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Density Estimation">
-<meta property="og:url" content="http://yoursite.com/2015/07/20/Density-Estimation/index.html">
+<meta property="og:title" content="Subgradient Method">
+<meta property="og:url" content="http://yoursite.com/2015/07/29/Subgradient-Method/index.html">
 <meta property="og:site_name" content="YYYOUC">
-<meta property="og:description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
+<meta property="og:description" content="IntroductionGradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Density Estimation">
-<meta name="twitter:description" content="IntroductionIn Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)">
+<meta name="twitter:title" content="Subgradient Method">
+<meta name="twitter:description" content="IntroductionGradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function">
   
     <link rel="alternative" href="/atom.xml" title="YYYOUC" type="application/atom+xml">
   
@@ -59,10 +59,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Density-Estimation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Subgradient-Method" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/07/20/Density-Estimation/" class="article-date">
-  <time datetime="2015-07-21T00:21:14.000Z" itemprop="datePublished">2015-07-20</time>
+    <a href="/2015/07/29/Subgradient-Method/" class="article-date">
+  <time datetime="2015-07-29T13:24:51.000Z" itemprop="datePublished">2015-07-29</time>
 </a>
     
   </div>
@@ -73,7 +73,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Density Estimation
+      Subgradient Method
     </h1>
   
 
@@ -81,35 +81,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction">Introduction</h1><p>In <a href="http://yyyouc.github.io/2015/07/18/Bayesian-Decision-Theory/" target="_blank" rel="external">Bayesian Decision Theory</a>, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $p(w_i)$. But how to get $p(x|w_i)$ and $p(w_i)$? In practice, it is easy to get $p(w_i)$. Therefore, we will mainly talk about how to estimate the class-conditional probability density based on the given dataset.</p>
-<p>There are two category method about estimate density. That is <strong>parametric method</strong> and <strong>nonparametric method</strong>. For the parametric method, it assumes that the dataset follows a specific functional form for the distribution with unknown parameters. Then density estimation is transformed to the parameter estimation. For the nonparametric method, the form of the distribution typically depends on the size of the dataset. For example, the histogram method. </p>
-<p>In the following, we will talk about the parametric method. The parametric method includes two kinds of method: <strong>maximum likelihood</strong> and <strong>Bayesian method</strong>. </p>
-<ul>
-<li>Maximum likelihood assumes the samples follows a specific form of distribution whose parameters are <strong>fixed</strong> but unknown. Thus, this method is to estimate the <strong>value of the parameter</strong>. The best estimate of their value is defined to be the one that maximizes the probability of obtaining the samples actually observed.<ul>
-<li>Bayesian method views the samples follows a specific form of distribution whose parameters are <strong>random variables</strong> having some known a priori distribution. Thus, this method is to estimate the <strong>distribution of the parameter</strong>, that is the posterior distribution of the parameter.</li>
-</ul>
+        <h2 id="Introduction">Introduction</h2><p>Gradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function? In this work, we will talk about the subgradient method for the nondifferentaible convex funtion.</p>
+<h2 id="Definition">Definition</h2><p>$g$ is a subgradient of a convex funtion $f$ at $x\in dim f$ if<br>$$<br>f(y)\geq f(x)+g^T(y-x)<br>$$<br>for any $y \in dom f$. </p>
+<p>Note that there may be more than one subgradient at a certain point, just as shown in the following picture.</p>
+<h2 id="Subgradient_Method">Subgradient Method</h2><p>To minimize a nondifferentiable convex function $f$: choose $x<em>0$ and repeat<br>$$<br>x_k= x\</em>{k-1}-t_kg_{k-1}<br>$$<br>where $g_{k-1}$ is any subgradient of $f$ at $x_{k-1}$, $t_k$ is the step size.</p>
+<p>There are three strategies to choose a valid step size:</p>
+<ol>
+<li>fixed step: $t_k$ is constant.</li>
+<li>fixed length: $t_k||g_{k-1}||_2$ is constant (i.e. ||x_k - x_{k-1}||_2 is constant)</li>
+<li>dimishing step: $t_k \rightarrow 0$, $\sum_{k=1}^{\infty} t_k = \infty$</li>
+</ol>
+<p>If $f$ is Lipschitz continous with constant $G&gt;0$:<br>$$<br>|f(x)-f(y)|\leq G||x-y||_2, \forall  x, y<br>$$<br>which is equivalent to<br>$$||g||_2 \leq G, \forall g\in \partial f(x), \forall x $$</p>
+<h2 id="Convergence_Analysis">Convergence Analysis</h2><p>Note that <strong>the subgradient method is not a descent method</strong>, the key quantity in the analysis is the distance to the optimal set.</p>
+<p>$$<br>||x_k-x^{opt}||_2^2=||x_{k-1}-tg_{k-1}-x^{opt}||_2^2 \<br>= ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(x_{k-1}-x^{opt})+t^2||g_{k-1}||_2^2  \<br>\leq ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(f_{k-1}-f^{opt})+t^2||g_{k-1}||_2^2<br>$$<br>If we define $f_{k}^{best} = \min_{0\leq i &lt; k}f(x_i)$, then<br>$$<br>2(\sum_{i=1}^k t_i)(f_{k}^{best} - f^{opt}) \<br>\leq ||x_0 - x^{opt}||_2^2-||x_k-x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||<em>2^2 \<br>\leq ||x_0 - x^{opt}||_2^2+\sum\</em>{i=1}^k t_i^2||g_{i-1}||_2^2<br>$$</p>
+<ol>
+<li><p>for fixed step size $t_i=t$<br> $$</p>
+<pre><code>f\_<span class="list">{k}</span>^<span class="list">{best}</span> - f^<span class="list">{opt}</span> \leq \frac<span class="list">{||x\_{0}</span>-x^<span class="list">{opt}</span>||\_2^<span class="number">2</span>}<span class="list">{2kt}</span>+\frac<span class="list">{G^2t}</span><span class="list">{2}</span>
+</code></pre><p> $$</p>
+<p> Note that</p>
+<pre><code><span class="number">1</span>. it does <span class="keyword">not</span> guarantee convergence of <span class="variable">$f_</span>{k}^{best}<span class="variable">$
+</span><span class="number">2</span>. <span class="keyword">for</span> large <span class="variable">$k</span><span class="variable">$,</span> <span class="variable">$f</span>\<span class="constant">_{</span>k}^{best}<span class="variable">$ </span>is approximately <span class="variable">$G</span>^<span class="number">2</span>t/<span class="number">2</span><span class="variable">$-</span>suboptimal. 
+</code></pre></li>
+<li><p>for fixed step length $_i=s/||g_{i-1}||_2$<br> $$</p>
+<pre><code>f\_<span class="list">{k}</span>^<span class="list">{best}</span> - f^<span class="list">{opt}</span> \leq \frac<span class="list">{G||x\_{0}</span>-x^<span class="list">{opt}</span>||\_2^<span class="number">2</span>}<span class="list">{2ks}</span>+\frac<span class="list">{Gs}</span><span class="list">{2}</span>
+</code></pre><p> $$<br> Note that </p>
+<pre><code><span class="number">1</span>. it does <span class="keyword">not</span> guarantee converfence of <span class="variable">$f_</span>{k}^{best}<span class="variable">$
+</span><span class="number">2</span>. <span class="keyword">for</span> large <span class="variable">$k</span><span class="variable">$,</span> <span class="variable">$f</span>\<span class="constant">_{</span>k}^{best}<span class="variable">$ </span>is approximately <span class="variable">$Gs</span>/<span class="number">2</span><span class="variable">$-</span>suboptimal. 
+</code></pre></li>
+<li><p>for diminishing step size $t_k \rightarrow 0$, $\sum_{k=1}^{\infty} t_k = \infty$<br>$$<br>f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2+G^2\sum_{i=1}^k t_i^2}{2\sum_{i=1}^k t_i}<br>$$<br>Because $\frac{\sum_{i=1}^k t_i^2}{\sum_{i=1}^k t_i}\rightarrow 0$, $f_{k}^{best}$ converges to $f^{opt}$.</p>
 </li>
-</ul>
-<h2 id="Maximum_Likelihood_Estimation">Maximum Likelihood Estimation</h2><p>As above, we have already know the form of the distribution, but we do not know the value of the parameters. Thus, we need to estimate the value of the parameters. </p>
-<p>Denote the parameter as $\theta$, and the $i$-th class (we assume different class has different parameter and they do not affect each other) dataset $D={x_1, x_2,\cdots, x_n}$ drawn independently from the probability density $p(x|\theta)$. Our duty is to estimate the unkown parameter $\theta$ according to dataset $D$.</p>
-<p>It is easy to know<br>$$<br>p(D|\theta)=\prod_{i=1}^np(x_i|\theta)<br>$$<br>where $p(D|\theta)$ is called the $likelihood$ of $\theta$ with respect to the set of samples. The maximum likelihood estimate of $\theta$ is the value that maximizes $p(D|\theta)$. Intuitively, <strong>this estimate corresponds to the value of $\theta$ that in some sense best agrees with or supports the actually observed training samples</strong>.</p>
-<p>To get the optimal $\theta$, we define the log-likelihood function<br>$$<br>l(\theta)=lnp(D|\theta)=\sum_{i=1}^nlnp(x_i|\theta)<br>$$<br>We can take the derivative of $l(\theta)$ with respect to $\theta$ and set it as zero to get the optimal $\theta$.</p>
-<p>This is the basic idea of maximum likelihood estimation.</p>
-<h2 id="Bayesian_Estimation">Bayesian Estimation</h2><p>Bayesian estimation also knows the form of the distribution with unkown parameters. But the parameters are random variables, following a prior distribution. Thus, our duty is to estimate such a distribution. That is the posterior distribution of the unkown paramethers.</p>
-<p>Denote $p(x|D)$ as the desired class-conditional probability density where $D$ is the training samples and $x$ is the testing sample, then<br>$$<br>p(x|D)=\int p(x,\theta|D)d\theta=\int p(x|\theta)p(\theta|D)d\theta<br>$$<br>where $p(\theta|D)$ is the the posterior density for the unknown parameter, $p(x|\theta)$ is the class-conditional probability density with unkown parameters $\theta$. Therefore, once we know the distribution $p(\theta|D)$, we will know $p(x|\theta)$. At last, we can get the desired class-conditional probability density $p(x|D)$. Thus, <strong>the most important is to estimate $p(\theta|D)$</strong>.</p>
-<p>According to Bayes’ formula<br>$$<br>p(\theta|D)=\alpha p(D|\theta)p(\theta)=\alpha \prod_{i=1}^np(x_i|\theta)p(\theta)<br>$$<br>where $p(\theta)$ is the prior probability density and $p(x_i|\theta)$ is the class-conditional probability density with unkown parameters $\theta$.</p>
-<p>This is the basic idea of Bayesian estimation.</p>
-<p>All in all, the maximum likelihood approach estimates a point in $\theta$ space, the Bayesian approach instead estimates a distribution.</p>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cicp0bv7n000dcsffgdg8yjwn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cicp0bv7i0008csffwmgzctij" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization-Method/">Optimization Method</a></li></ul>
 
     </footer>
   </div>
@@ -117,19 +128,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/21/Convex-Function/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Convex Function
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/18/Bayesian-Decision-Theory/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/24/Gradient-Descent-Method/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Bayesian Decision Theory</div>
+      <div class="article-nav-title">Gradient Descent Method</div>
     </a>
   
 </nav>
@@ -259,7 +261,7 @@
 <script>
   var disqus_shortname = 'yyyouc';
   
-  var disqus_url = 'http://yoursite.com/2015/07/20/Density-Estimation/';
+  var disqus_url = 'http://yoursite.com/2015/07/29/Subgradient-Method/';
   
   (function(){
     var dsq = document.createElement('script');
