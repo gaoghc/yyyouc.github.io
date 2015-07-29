@@ -84,7 +84,7 @@
         <h2 id="Introduction">Introduction</h2><p>Gradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function? In this work, we will talk about the subgradient method for the nondifferentaible convex funtion.</p>
 <h2 id="Definition">Definition</h2><p>$g$ is a subgradient of a convex funtion $f$ at $x\in dim f$ if<br>$$<br>f(y)\geq f(x)+g^T(y-x)<br>$$<br>for any $y \in dom f$. </p>
 <p>Note that there may be more than one subgradient at a certain point, just as shown in the following picture.</p>
-<h2 id="Subgradient_Method">Subgradient Method</h2><p>To minimize a nondifferentiable convex function $f$: choose $x<em>0$ and repeat<br>$$<br>x_k= x\</em>{k-1}-t_kg_{k-1}<br>$$<br>where $g_{k-1}$ is any subgradient of $f$ at $x_{k-1}$, $t_k$ is the step size.</p>
+<h2 id="Subgradient_Method">Subgradient Method</h2><p>To minimize a nondifferentiable convex function $f$: choose $x_0$ and repeat<br>$$<br>x_k= x_{k-1}-t_kg_{k-1}<br>$$<br>where $g_{k-1}$ is any subgradient of $f$ at $x_{k-1}$, $t_k$ is the step size.</p>
 <p>There are three strategies to choose a valid step size:</p>
 <ol>
 <li>fixed step: $t_k$ is constant.</li>
@@ -93,21 +93,21 @@
 </ol>
 <p>If $f$ is Lipschitz continous with constant $G&gt;0$:<br>$$<br>|f(x)-f(y)|\leq G||x-y||_2, \forall  x, y<br>$$<br>which is equivalent to<br>$$||g||_2 \leq G, \forall g\in \partial f(x), \forall x $$</p>
 <h2 id="Convergence_Analysis">Convergence Analysis</h2><p>Note that <strong>the subgradient method is not a descent method</strong>, the key quantity in the analysis is the distance to the optimal set.</p>
-<p>$$<br>||x_k-x^{opt}||_2^2=||x_{k-1}-tg_{k-1}-x^{opt}||_2^2 \<br>= ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(x_{k-1}-x^{opt})+t^2||g_{k-1}||_2^2  \<br>\leq ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(f_{k-1}-f^{opt})+t^2||g_{k-1}||_2^2<br>$$<br>If we define $f_{k}^{best} = \min_{0\leq i &lt; k}f(x_i)$, then<br>$$<br>2(\sum_{i=1}^k t_i)(f_{k}^{best} - f^{opt}) \<br>\leq ||x_0 - x^{opt}||_2^2-||x_k-x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||<em>2^2 \<br>\leq ||x_0 - x^{opt}||_2^2+\sum\</em>{i=1}^k t_i^2||g_{i-1}||_2^2<br>$$</p>
+<p>$$<br>||x_k-x^{opt}||_2^2=||x_{k-1}-tg_{k-1}-x^{opt}||_2^2 \\<br>= ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(x_{k-1}-x^{opt})+t^2||g_{k-1}||_2^2  \\<br>\leq ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(f_{k-1}-f^{opt})+t^2||g_{k-1}||_2^2<br>$$<br>If we define $f_{k}^{best} = \min_{0\leq i &lt; k}f(x_i)$, then<br>$$<br>2(\sum_{i=1}^k t_i)(f_{k}^{best} - f^{opt}) \\<br>\leq ||x_0 - x^{opt}||_2^2-||x_k-x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||_2^2 \\<br>\leq ||x_0 - x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||_2^2<br>$$</p>
 <ol>
-<li><p>for fixed step size $t_i=t$<br> $$</p>
-<pre><code>f\_<span class="list">{k}</span>^<span class="list">{best}</span> - f^<span class="list">{opt}</span> \leq \frac<span class="list">{||x\_{0}</span>-x^<span class="list">{opt}</span>||\_2^<span class="number">2</span>}<span class="list">{2kt}</span>+\frac<span class="list">{G^2t}</span><span class="list">{2}</span>
-</code></pre><p> $$</p>
+<li><p>for fixed step size $t_i=t$<br>$$<br> f_{k}^{best} - f^{opt} \leq \frac{||x_{0}-x^{opt}||_2^2}{2kt}+\frac{G^2t}{2}<br>$$</p>
 <p> Note that</p>
-<pre><code><span class="number">1</span>. it does <span class="keyword">not</span> guarantee convergence of <span class="variable">$f_</span>{k}^{best}<span class="variable">$
-</span><span class="number">2</span>. <span class="keyword">for</span> large <span class="variable">$k</span><span class="variable">$,</span> <span class="variable">$f</span>\<span class="constant">_{</span>k}^{best}<span class="variable">$ </span>is approximately <span class="variable">$G</span>^<span class="number">2</span>t/<span class="number">2</span><span class="variable">$-</span>suboptimal. 
-</code></pre></li>
-<li><p>for fixed step length $_i=s/||g_{i-1}||_2$<br> $$</p>
-<pre><code>f\_<span class="list">{k}</span>^<span class="list">{best}</span> - f^<span class="list">{opt}</span> \leq \frac<span class="list">{G||x\_{0}</span>-x^<span class="list">{opt}</span>||\_2^<span class="number">2</span>}<span class="list">{2ks}</span>+\frac<span class="list">{Gs}</span><span class="list">{2}</span>
-</code></pre><p> $$<br> Note that </p>
-<pre><code><span class="number">1</span>. it does <span class="keyword">not</span> guarantee converfence of <span class="variable">$f_</span>{k}^{best}<span class="variable">$
-</span><span class="number">2</span>. <span class="keyword">for</span> large <span class="variable">$k</span><span class="variable">$,</span> <span class="variable">$f</span>\<span class="constant">_{</span>k}^{best}<span class="variable">$ </span>is approximately <span class="variable">$Gs</span>/<span class="number">2</span><span class="variable">$-</span>suboptimal. 
-</code></pre></li>
+<ol>
+<li>it does not guarantee convergence of $f_{k}^{best}$</li>
+<li>for large $k$, $f_{k}^{best}$ is approximately $G^2t/2$-suboptimal. </li>
+</ol>
+</li>
+<li><p>for fixed step length $_i=s/||g_{i-1}||_2$<br>$$<br> f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2}{2ks}+\frac{Gs}{2}<br>$$<br> Note that </p>
+<ol>
+<li>it does not guarantee converfence of $f_{k}^{best}$</li>
+<li>for large $k$, $f_{k}^{best}$ is approximately $Gs/2$-suboptimal. </li>
+</ol>
+</li>
 <li><p>for diminishing step size $t_k \rightarrow 0$, $\sum_{k=1}^{\infty} t_k = \infty$<br>$$<br>f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2+G^2\sum_{i=1}^k t_i^2}{2\sum_{i=1}^k t_i}<br>$$<br>Because $\frac{\sum_{i=1}^k t_i^2}{\sum_{i=1}^k t_i}\rightarrow 0$, $f_{k}^{best}$ converges to $f^{opt}$.</p>
 </li>
 </ol>
@@ -115,7 +115,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cicp0bv7i0008csffwmgzctij" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cicp0m3bu00080wffx8pl2294" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
