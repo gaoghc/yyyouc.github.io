@@ -82,7 +82,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Introduction">Introduction</h2><p>Gradient descent method is widely used in solving the optimization method. However, it needs the gradient of the objective function. Therefore, how to do for the nondifferentiable function? In this work, we will talk about the subgradient method for the nondifferentaible convex funtion.</p>
-<h2 id="Definition">Definition</h2><p>$g$ is a subgradient of a convex funtion $f$ at $x\in dim f$ if<br>$$<br>f(y)\geq f(x)+g^T(y-x)<br>$$<br>for any $y \in dom f$. </p>
+<h2 id="Definition">Definition</h2><p>$g$ is a subgradient of a convex funtion $f$ at $x\in dom f$ if<br>$$<br>f(y)\geq f(x)+g^T(y-x)<br>$$<br>for any $y \in dom f$. </p>
 <p>Note that there may be more than one subgradient at a certain point, just as shown in the following picture.</p>
 <h2 id="Subgradient_Method">Subgradient Method</h2><p>To minimize a nondifferentiable convex function $f$: choose $x_0$ and repeat<br>$$<br>x_k= x_{k-1}-t_kg_{k-1}<br>$$<br>where $g_{k-1}$ is any subgradient of $f$ at $x_{k-1}$, $t_k$ is the step size.</p>
 <p>There are three strategies to choose a valid step size:</p>
@@ -96,11 +96,11 @@
 <p>$$<br>||x_k-x^{opt}||_2^2=||x_{k-1}-tg_{k-1}-x^{opt}||_2^2 \\<br>= ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(x_{k-1}-x^{opt})+t^2||g_{k-1}||_2^2  \\<br>\leq ||x_{k-1}-x^{opt}||_2^2-2tg_{k-1}^T(f_{k-1}-f^{opt})+t^2||g_{k-1}||_2^2<br>$$<br>If we define $f_{k}^{best} = \min_{0\leq i &lt; k}f(x_i)$, then<br>$$<br>2(\sum_{i=1}^k t_i)(f_{k}^{best} - f^{opt}) \\<br>\leq ||x_0 - x^{opt}||_2^2-||x_k-x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||_2^2 \\<br>\leq ||x_0 - x^{opt}||_2^2+\sum_{i=1}^k t_i^2||g_{i-1}||_2^2<br>$$</p>
 <ol>
 <li><p>for fixed step size $t_i=t$<br>$$<br> f_{k}^{best} - f^{opt} \leq \frac{||x_{0}-x^{opt}||_2^2}{2kt}+\frac{G^2t}{2}<br>$$</p>
-<p> Note that<br> <em>. it does not guarantee convergence of $f_{k}^{best}$
- </em>. for large $k$, $f_{k}^{best}$ is approximately $G^2t/2$-suboptimal. </p>
+<p> Note that<br> *. it does not guarantee convergence of $f_{k}^{best}$</p>
+<p> *. for large $k$, $f_{k}^{best}$ is approximately $G^2t/2$-suboptimal. </p>
 </li>
-<li><p>for fixed step length $_i=s/||g_{i-1}||_2$<br>$$<br> f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2}{2ks}+\frac{Gs}{2}<br>$$<br> Note that<br> <em>. it does not guarantee converfence of $f_{k}^{best}$
- </em>. for large $k$, $f_{k}^{best}$ is approximately $Gs/2$-suboptimal. </p>
+<li><p>for fixed step length $_i=s/||g_{i-1}||_2$<br>$$<br> f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2}{2ks}+\frac{Gs}{2}<br>$$<br> Note that<br> *. it does not guarantee converfence of $f_{k}^{best}$</p>
+<p> *. for large $k$, $f_{k}^{best}$ is approximately $Gs/2$-suboptimal. </p>
 </li>
 <li><p>for diminishing step size $t_k \rightarrow 0$, $\sum_{k=1}^{\infty} t_k = \infty$<br>$$<br>f_{k}^{best} - f^{opt} \leq \frac{G||x_{0}-x^{opt}||_2^2+G^2\sum_{i=1}^k t_i^2}{2\sum_{i=1}^k t_i}<br>$$<br>Because $\frac{\sum_{i=1}^k t_i^2}{\sum_{i=1}^k t_i}\rightarrow 0$, $f_{k}^{best}$ converges to $f^{opt}$.</p>
 </li>
