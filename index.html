@@ -99,15 +99,19 @@
 </ol>
 <ul>
 <li>For the det-objective function, we can solve the generalized eigenvalue problem $S_Bw=\lambda S_Ww$ to get the solution. </li>
-<li>For the trace-objective function, it is a trace ratio problem. We can solve it with Iterative Trace Ratio (ITR) method. GIven $\lambda_t$ at each iteration $t$, one searches for a transform matrix according to the trace difference as<br>$$<br>W_t = \arg\max_{W}tr(W^T(S_W-\lambda S_B)W)<br>$$<br>and renew $\lambda_{t+1}$ as the trace ratio given by $W_t$:<br>$$<br>\lambda_{t+1} =\frac{tr(W_t^TS_WW_t)}{tr(W_t^TS_BW_t)}<br>$$<br>Note that $S_B$ is the sum of $C$ matrices of $rank\leq 1$ and the mean vectors are constrained by $\frac{1}{C}\sum_{i=1}{C}\mu_i=\mu$, therefore</li>
+<li>For the trace-objective function, it is a trace ratio problem. We can solve it with Iterative Trace Ratio (ITR) method. GIven $\lambda_t$ at each iteration $t$, one searches for a transform matrix according to the trace difference as<br>$$<br>W_t = \arg\max_{W}tr(W^T(S_W-\lambda S_B)W)<br>$$<br>and renew $\lambda_{t+1}$ as the trace ratio given by $W_t$:<br>$$<br>\lambda_{t+1} =\frac{tr(W_t^TS_WW_t)}{tr(W_t^TS_BW_t)}<br>$$<br>Note that $S_B$ is the sum of $C$ matrices of $rank\leq 1$ and the mean vectors are constrained by $\frac{1}{C}\sum_{i=1}^{C}\mu_i=\mu$, therefore</li>
 <li>$S_B$ will be of rank $C-1$ or less</li>
 <li>This means that only $C-1$ of the eigenvalues will be non-zero.</li>
+</ul>
+<h2 id="Limitations">Limitations</h2><ul>
+<li>LDA produces at most $C-1$ feature projections</li>
+<li>LDA assumes the data points from different classes follow Gaussian distribution with same covariance. If the distributions are significantly non-Gaussian or Gaussian-with-different-covariance, the LDA projections may not preserve complex structure in the data needed for classification.</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cictunglc000blwffqnlkv3yy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cictuz6kx000bqcffnib7tl1p" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -182,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cictungla0008lwffkx8j59c6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cictuz6kv0008qcffsp9ythbr" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -243,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cictungle000dlwffvvofk4ur" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cictuz6l0000dqcff0y6nxnoo" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -298,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cictunglj000hlwffog31zkss" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cictuz6l4000hqcffqjkqafec" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -357,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cictunglh000flwff7yl5s38f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cictuz6l1000fqcff3vblbcw5" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -419,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cictungk80000lwff6wait11a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cictuz6ju0000qcffn8u0xtbb" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -471,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cictungl80006lwff3s1e9mye" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cictuz6kt0006qcffzkawquoe" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -520,7 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cictungl40003lwffx286q6id" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cictuz6kp0003qcff0ykpjrov" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
