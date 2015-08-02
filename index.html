@@ -107,11 +107,13 @@
 <li>LDA produces at most $C-1$ feature projections</li>
 <li>LDA assumes the data points from different classes follow Gaussian distribution with same covariance. Since the covariance matrix determines the shape of the Gaussian density, in LDA, the Gaussian densities for different classes have the same shape, but are shifted versions of each other (different mean vectors). If the distributions are significantly non-Gaussian or Gaussian-with-different-covariance, the LDA projections may not preserve complex structure in the data needed for classification.</li>
 </ul>
+<h2 id="Revisit_LDA_from_Gaussian_View">Revisit LDA from Gaussian View</h2><p>In Bayesian Decision Theory, we have talked about how to design a Bayes classifier. In fact, it needs the class-conditional probability density $p(x|w_i)$ and the prior probability $P(w_i)$. After that, according to the Bayes rule, what we need is to compute the posterior probability $P(w_i|x)$.<br>Under LDA we assume that the density for $X$, given every class $k$ is following a Gaussian distribution. Here is the density formula for a multivariate Gaussian distribution:<br>$$<br>f_k(x) = \frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k)}<br>$$<br>where $p$ is the dimension and $\Sigma_k$ is the covariance matrix. <strong>For Linear discriminant analysis (LDA): $\Sigma_{k}=\Sigma, \forall k$</strong>.</p>
+<p>As told in Bayesian Decision Theory, we can choose the following discriminant function<br>$$<br>G(x) = \arg\max_{k}P(w_i|x) \\<br>= \arg\max_{k}f_k(x)\pi_k \\<br>= \arg\max_{k}log(f_k(x)\pi_k) \\<br>= \arg\max_{k} [-log((2\pi)^{p/2}|\Sigma|^{1/2})-\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k) + log(\pi_k)] \\<br>= \arg\max_{k} [-\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k) + log(\pi_k)] \\<br>= \arg\max_{k} [x^T\Sigma^{-1}\mu_k -\frac{1}{2}\mu_k^T\Sigma^{-1}\mu_k+log(\pi_k)]<br>$$<br>This is the final classifier. Apparently, it is a linear function with respect to $x$. Given any $x$, you simply plug into this formula and see which $k$ maximizes this. </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cictuz6kx000bqcffnib7tl1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cictwkkb9000b64ffclxwb75v" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -186,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cictuz6kv0008qcffsp9ythbr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cictwkkb6000864ffi66bmytz" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -247,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cictuz6l0000dqcff0y6nxnoo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cictwkkbb000d64ffuse8zlhw" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -302,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cictuz6l4000hqcffqjkqafec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cictwkkbg000h64ffv6chhbd9" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -361,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cictuz6l1000fqcff3vblbcw5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cictwkkbd000f64ff9lnqolq4" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -423,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cictuz6ju0000qcffn8u0xtbb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cictwkka2000064ff5rxu1uso" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -475,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cictuz6kt0006qcffzkawquoe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cictwkkb4000664ffldetey88" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -524,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cictuz6kp0003qcff0ykpjrov" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cictwkkb0000364ffj8sw41tl" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
