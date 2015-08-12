@@ -92,11 +92,14 @@
 <h3 id="2-2_Examples">2.2 Examples</h3><p>(1). $f(x)=0$: $prox_f(x) = x$ </p>
 <p>(2). $f(x)=I_C(x)$ (indictor function of C): $prox_h$ is the projection on C. $prox_h(x)=\arg\min_{u\in C}||u-x||_2^2=P_C(x)$</p>
 <p>(3). $f(x)=||x||_1$: $prox_h$ is the ‘soft-threshold’ (shrinkage) operation<br>$$ prox_h(x)_i=\left\{<br>\begin{array}{lcl}<br>x_i-1       &amp;      &amp; {x_i\geq 1}\\<br>0     &amp;      &amp; {|x_i| \leq 1}\\<br>x_i+1     &amp;      &amp; {x_i\leq -1}\\<br>\end{array} \right. $$</p>
-<h2 id="3-_Proximal_Gradient_Method">3. Proximal Gradient Method</h2>
+<h2 id="3-_Proximal_Gradient_Method">3. Proximal Gradient Method</h2><p>In machine learning application, we often encounter the following objective function:<br>$$<br>\min f(x)+\lambda h(x)<br>$$ where $f(x)$ is convex and differentiable, usually it is a loss function. $h(x)$ is convex with inexpensive prox-perator,usually it is a regularizer. For example, the hinge regression problem<br>$$\min_{W} ||Y-W^TX||_F^2+||W||_1$$ where $f(W)=||Y-W^TX||_F^2$, $h(W) = ||W||_1$.</p>
+<h3 id="3-1_Key_Idea">3.1 Key Idea</h3><p><strong>The key idea of the proximal gradient method is to minimize the upper bound of the origial objective</strong>.<br>The general fomulation of proximal gradient method is as follows.<br>$$<br>x_{t+1} = prox_{s_{k+1}h}(x_{t}-s_{k+1}\nabla f(x_t))<br>$$where $s_{k+1}&gt;0$ is the step size. </p>
+<p>However, what’s the meaning of this iterative step? Assume $f(x)$ is Lipschitz continous, then<br>$$f(x)\leq f(x_t)+ \nabla f(x_t)^T(x-x_t) + \frac{L}{2}||x-x_t||_2^2 \triangleq g(x)$$ The upper bound $g(x)=\frac{L}{2}||x-a||_2^2+c$ where $a=x_t-\frac{1}{L}\nabla f(x_t)$ and $c=f(x_t)-\frac{1}{2L}||\nabla f(x_t)||_2^2$. Therefore, using the upper bound $g(x)$, we can solve $\min f(x)+\lambda h(x)$  by<br>$$<br>\min \frac{L}{2}||x-a||_2^2 +\lambda h(x)<br>$$where $a=x_t-\frac{1}{L}\nabla f(x_t)$. Usually, the new objective is easier to solve than the original one.<br>Therefore,<br>$$<br>x_{t+1}=\arg\min_{x}(\frac{L}{2}||x-a||_2^2 +\lambda h(x)) \<br>= \arg\min_{x}(||x-a||_2^2 +\frac{2\lambda}{L} h(x)) \<br>= prox_{\frac{2\lambda}{L} h}(a)<br>= prox_{\frac{2\lambda}{L} h}(x_t-\frac{1}{L}\nabla f(x_t))<br>$$<br>All in all, we can conclude that the proximal gradient method is to solve the upper bound of the original problem.</p>
+<h3 id="3-2_Convergence">3.2 Convergence</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cid85otrh000blsff3n9z371f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cid888hrk000b78ffwpeq2f6r" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -162,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cid85otrk000dlsffc3w8vhoj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cid888hrn000d78ffftpmtuxe" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -237,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cid85otre0008lsff6bb91o7i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cid888hri000878ffcv86clla" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -298,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cid85otrm000flsff25lt7hx2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cid888hrq000f78ff8yt8az1q" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -353,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cid85ots2000jlsff4liipdfb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cid888hrz000j78ff2niijwu9" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -412,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cid85otrq000hlsffiix2altz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cid888hrv000h78ffnddcy9t5" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -474,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cid85otqb0000lsffo8q984xf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cid888hq9000078ffj7rjoiuc" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -526,7 +529,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cid85otrb0006lsffv1m3ynem" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cid888hrf000678ff3th6ac6j" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -575,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cid85otr60003lsffxb1jzbbg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cid888hrc000378ffnielw8df" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
