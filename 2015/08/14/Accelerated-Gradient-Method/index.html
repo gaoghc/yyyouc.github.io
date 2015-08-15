@@ -88,11 +88,7 @@
 <li>Y. Nesterov (1988) On an approach to the construction of optimal methods of minimization of smooth convex functions</li>
 <li>Y. Nesterov (2005), Smooth minimization of non-smooth functions<br>In addition, we will talk about <strong>FISTA</strong> method</li>
 </ul>
-<p>There is an assumption about $f$:</p>
-<ul>
-<li>$f$ is a convex function with an $L$-Lipshitz continuous derivative.</li>
-</ul>
-<h2 id="2-_Nesterov’s_First_Method_(1983)">2. Nesterov’s First Method (1983)</h2><p>Choose $x_0$ and set $x_0=x_{-1}$. For all $k\geq 1$, repeat the steps</p>
+<h2 id="2-_Nesterov’s_First_Method_(1983)">2. Nesterov’s First Method (1983)</h2><p>$f$ is a convex function with an $L$-Lipshitz continuous derivative.<br>Choose $x_0$ and set $x_0=x_{-1}$. For all $k\geq 1$, repeat the steps</p>
 <ul>
 <li>$y = x_{k-1} + \frac{k-2}{k+1}(x_{k-1} - x_{k-2})$</li>
 <li>$x_k = y-t_k\nabla f(y)$</li>
@@ -111,7 +107,7 @@
 <li>$v_{k} = x_{k-1}+\frac{1}{\theta_k}(x_k-x_{k-1})$</li>
 </ul>
 <p>This expression makes convergence analysis easier.</p>
-<h2 id="3-_Nesterov’s_Second_Method_(1988)">3. Nesterov’s Second Method (1988)</h2><p>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps</p>
+<h2 id="3-_Nesterov’s_Second_Method_(1988)">3. Nesterov’s Second Method (1988)</h2><p>$f$ is a convex function with an $L$-Lipshitz continuous derivative.<br>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps</p>
 <ul>
 <li>$y = (1-\theta_k)x_{k-1}+\theta_k v_{k-1}$</li>
 <li>$v_k =v_{k-1} - \frac{t_k}{\theta_k}\nabla g(y)$</li>
@@ -131,12 +127,12 @@
 <li>$\theta_{k+1} \geq \theta_{k} + 1/2$</li>
 <li>$\lim_{t-&gt;inf}\frac{\theta_{k} - 1}{\theta_{k+1}}=1$ </li>
 </ul>
-<h2 id="6-_Convergence_Rate">6. Convergence Rate</h2><p>If $f$ is a convex function with an $L$-Lipshitz continuous derivative, then the above method satisfies the following:</p>
+<h2 id="6-_Convergence_Rate">6. Convergence Rate</h2><p>If $f$ is a convex function with an $L$-Lipshitz continuous derivative, then the convergenct rate of the above methods is $O(1/k^2)$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/" data-id="cidcgcnxt0000f4ffc03xblti" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/" data-id="cidcjc8zf00005sffuzcnnyq1" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       

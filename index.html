@@ -90,11 +90,7 @@
 <li>Y. Nesterov (1988) On an approach to the construction of optimal methods of minimization of smooth convex functions</li>
 <li>Y. Nesterov (2005), Smooth minimization of non-smooth functions<br>In addition, we will talk about <strong>FISTA</strong> method</li>
 </ul>
-<p>There is an assumption about $f$:</p>
-<ul>
-<li>$f$ is a convex function with an $L$-Lipshitz continuous derivative.</li>
-</ul>
-<h2 id="2-_Nesterov’s_First_Method_(1983)">2. Nesterov’s First Method (1983)</h2><p>Choose $x_0$ and set $x_0=x_{-1}$. For all $k\geq 1$, repeat the steps</p>
+<h2 id="2-_Nesterov’s_First_Method_(1983)">2. Nesterov’s First Method (1983)</h2><p>$f$ is a convex function with an $L$-Lipshitz continuous derivative.<br>Choose $x_0$ and set $x_0=x_{-1}$. For all $k\geq 1$, repeat the steps</p>
 <ul>
 <li>$y = x_{k-1} + \frac{k-2}{k+1}(x_{k-1} - x_{k-2})$</li>
 <li>$x_k = y-t_k\nabla f(y)$</li>
@@ -113,7 +109,7 @@
 <li>$v_{k} = x_{k-1}+\frac{1}{\theta_k}(x_k-x_{k-1})$</li>
 </ul>
 <p>This expression makes convergence analysis easier.</p>
-<h2 id="3-_Nesterov’s_Second_Method_(1988)">3. Nesterov’s Second Method (1988)</h2><p>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps</p>
+<h2 id="3-_Nesterov’s_Second_Method_(1988)">3. Nesterov’s Second Method (1988)</h2><p>$f$ is a convex function with an $L$-Lipshitz continuous derivative.<br>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps</p>
 <ul>
 <li>$y = (1-\theta_k)x_{k-1}+\theta_k v_{k-1}$</li>
 <li>$v_k =v_{k-1} - \frac{t_k}{\theta_k}\nabla g(y)$</li>
@@ -133,12 +129,12 @@
 <li>$\theta_{k+1} \geq \theta_{k} + 1/2$</li>
 <li>$\lim_{t-&gt;inf}\frac{\theta_{k} - 1}{\theta_{k+1}}=1$ </li>
 </ul>
-<h2 id="6-_Convergence_Rate">6. Convergence Rate</h2><p>If $f$ is a convex function with an $L$-Lipshitz continuous derivative, then the above method satisfies the following:</p>
+<h2 id="6-_Convergence_Rate">6. Convergence Rate</h2><p>If $f$ is a convex function with an $L$-Lipshitz continuous derivative, then the convergenct rate of the above methods is $O(1/k^2)$</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/" data-id="cidcgcnxt0000f4ffc03xblti" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/" data-id="cidcjc8zf00005sffuzcnnyq1" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -202,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cidcgcnye000bf4ff9gso4d4l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cidcjc90n000b5sff254xg47d" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -268,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cidcgcnyh000df4ffmua7ysg5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cidcjc90q000d5sff5075ogt6" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -343,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cidcgcnya0009f4fftivb0smz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cidcjc90j00095sff1sn4bk74" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -404,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cidcgcnyj000ff4ff240ozf1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cidcjc90t000f5sffn52w8d4j" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -459,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cidcgcnyn000jf4ffnasgcvgr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cidcjc913000j5sffmoncehmu" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -518,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cidcgcnyl000hf4ffq7p9z2pu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cidcjc90x000h5sff75w97kpd" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -580,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cidcgcnys000lf4ff0lbgsy5n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cidcjc91a000l5sffr9yb6qg9" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -632,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cidcgcny50006f4ffe3l3r8xc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cidcjc90f00065sffcexnlyi0" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -681,7 +677,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cidcgcny20003f4ffy9c0fkhn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cidcjc90800035sffm1s97lur" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
