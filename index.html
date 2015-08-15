@@ -61,6 +61,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Accelerated-Gradient-Method" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/14/Accelerated-Gradient-Method/" class="article-date">
+  <time datetime="2015-08-14T19:55:55.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/Accelerated-Gradient-Method/">Accelerated Gradient Method</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-_Introduction">1. Introduction</h2><p>We have talked about three gradient-based method (or first order method) in the previous work, that is <strong>gradient descent method</strong>, <strong>subgradient method</strong> and <strong>proximal gradient method</strong>. Their convergence rate is $O(1/k)$, $O(1/\sqrt(k)$ and $O(1/k)$ respectively. Today we will talk about the accelerated gradient method whose convergence rate is $O(1/k^2)$.</p>
+<p>In the following, we will talk about Nesterov’s three accelerated methods corresponding his three papers:</p>
+<ul>
+<li>Y. Nesterov (1983), A method for solving a convex programming problem with convergence rate $O(1/k^2)$</li>
+<li>Y. Nesterov (1988) On an approach to the construction of optimal methods of minimization of smooth convex functions</li>
+<li>Y. Nesterov (2005), Smooth minimization of non-smooth functions<br>In addition, we will talk about <strong>FISTA</strong> method</li>
+</ul>
+<p>There is an assumption about $f$:</p>
+<ul>
+<li>$f$ is a convex function with an $L$-Lipshitz continuous derivative.</li>
+</ul>
+<h2 id="2-_Nesterov’s_First_Method_(1983)">2. Nesterov’s First Method (1983)</h2><p>Choose $x<em>0$ and set $x_0=x\</em>{-1}$. For all $k\geq 1$, repeat the steps</p>
+<ul>
+<li>$y = x_{k-1} + \frac{k-2}{k+1}(x_{k-1} - x_{k-2})$</li>
+<li>$x_k = y-t_k\nabla f(y)$</li>
+</ul>
+<p>where $t_k$ is the step length. </p>
+<p>Note that</p>
+<ul>
+<li>First iteration (k=1) is a gradient step at $y=x_0$</li>
+<li>Next iterations are the gradient steps at extrapolated points $y$</li>
+<li>$\frac{k-2}{k+1}(x_{k-1} - x_{k-2})$ can be viewed as the <strong>momentum term</strong>.</li>
+</ul>
+<p>Define $\theta_k = \frac{2}{k+1}$ and introduce an intermediate variable $v_k$. We can reformulate the above iterative steps as follows:<br>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps:</p>
+<ul>
+<li>$y = (1-\theta_k) x_{k-1} + \theta_k v_{k-1}$</li>
+<li>$x_{k} = y - t_k\nabla f(y)$</li>
+<li>$v_{k} = x_{k-1}+\frac{1}{\theta_k}(x_k-x_{k-1})$</li>
+</ul>
+<p>This expression makes convergence analysis easier.</p>
+<h2 id="3-_Nesterov’s_Second_Method_(1988)">3. Nesterov’s Second Method (1988)</h2><p>Choose $x_0=v_0$, for all $k\geq 1$, repeat the steps</p>
+<ul>
+<li>$y = (1-\theta_k)x_{k-1}+\theta_k v_{k-1}$</li>
+<li>$v_k =v_{k-1} - \frac{t_k}{\theta_k}\nabla g(y)$</li>
+<li>$x_k = (1-\theta_k)x_{k-1} + \theta_k v_{k}$</li>
+</ul>
+<p>where $t_k$ is the step size and $\theta_k=\frac{2}{k+1}$</p>
+<h2 id="4-_Nesterov’s_Third_Method_(2005)">4. Nesterov’s Third Method (2005)</h2><p>abc</p>
+<h2 id="5-_Another_Formulation_(Beck_and_Teboulle_2009)">5. Another Formulation (Beck and Teboulle 2009)</h2><p>The general iterative step of the first method is as follows:<br>Choose $x_1$, set $y_1=x_1$, $\theta_1=1$, repeates:</p>
+<ul>
+<li>$x_{k+1}=y_{k} - t_k \nabla f(y_{k})$</li>
+<li>$\theta_{k+1} = \frac{1+\sqrt{1+4\theta_{k}^2}}{2}$</li>
+<li>$y_{k+1} = x_{k+1}+\frac{\theta_{k} - 1}{\theta_{k+1}}(x_{k+1}-x_{k})$</li>
+</ul>
+<p>where $t_k$ is the step size. Note that the three properties of $\theta_{k}$:</p>
+<ul>
+<li>$\theta_{k}$ is positive and increasing</li>
+<li>$\theta_{k+1} \geq \theta_{k} + 1/2$</li>
+<li>$\lim_{t-&gt;inf}\frac{\theta_{k} - 1}{\theta_{k+1}}=1$ </li>
+</ul>
+<h2 id="6-_Convergence_Rate">6. Convergence Rate</h2><p>If $f$ is a convex function with an $L$-Lipshitz continuous derivative, then the above method satisfies the following:</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/" data-id="cidcgcnxt0000f4ffc03xblti" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2015/08/14/Accelerated-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization-Method/">Optimization Method</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Proximal-Gradient-Method" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/11/Proximal-Gradient-Method/" class="article-date">
@@ -111,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cid9npszd000bewff007o1ch4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/" data-id="cidcgcnye000bf4ff9gso4d4l" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/11/Proximal-Gradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -177,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cid9npszf000dewff9w85gltb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/" data-id="cidcgcnyh000df4ffmua7ysg5" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/08/01/Linear-Disciminant-Analysis/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -252,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cid9npsza0008ewffk66x7qb4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/29/Subgradient-Method/" data-id="cidcgcnya0009f4fftivb0smz" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/29/Subgradient-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -313,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cid9npszi000fewffq6gk8shk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/24/Gradient-Descent-Method/" data-id="cidcgcnyj000ff4ff240ozf1c" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/24/Gradient-Descent-Method/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -368,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cid9npszp000jewffbpzgq1ro" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/21/Convex-Function/" data-id="cidcgcnyn000jf4ffnasgcvgr" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/21/Convex-Function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -427,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cid9npszl000hewffsawsea2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/20/Density-Estimation/" data-id="cidcgcnyl000hf4ffq7p9z2pu" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/20/Density-Estimation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -489,7 +580,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cid9npsy50000ewffl841oy0b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/" data-id="cidcgcnys000lf4ff0lbgsy5n" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/18/Bayesian-Decision-Theory/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -541,7 +632,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cid9npsz70006ewff8cit3wha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/Support Vector Machine/" data-id="cidcgcny50006f4ffe3l3r8xc" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/07/07/Support Vector Machine/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -590,7 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cid9npsz40003ewffzfc5si39" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/17/hello-world/" data-id="cidcgcny20003f4ffy9c0fkhn" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2015/05/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -615,7 +706,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Optimization-Method/">Optimization Method</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Optimization-Method/">Optimization Method</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -624,7 +715,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a><a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a><a href="/tags/Optimization-Method/" style="font-size: 20px;">Optimization Method</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a><a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a><a href="/tags/Optimization-Method/" style="font-size: 20px;">Optimization Method</a>
     </div>
   </div>
 
@@ -633,7 +724,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -643,6 +734,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/08/14/Accelerated-Gradient-Method/">Accelerated Gradient Method</a>
+          </li>
         
           <li>
             <a href="/2015/08/11/Proximal-Gradient-Method/">Proximal Gradient Method</a>
@@ -658,10 +753,6 @@
         
           <li>
             <a href="/2015/07/24/Gradient-Descent-Method/">Gradient Descent Method</a>
-          </li>
-        
-          <li>
-            <a href="/2015/07/21/Convex-Function/">Convex Function</a>
           </li>
         
       </ul>
